@@ -28,7 +28,7 @@ ORDER BY measurement_count DESC;
 
 This yields the Concept ID we want to focus on (as shown below) but the `measurement` table has _all_ `NULL` records for the values; we're not going to use it for this reason.
 
-![](https://public.nikhil.io/grad.nikhil.io/hba1c-comp-epi.jpeg)
+![](https://public.nikhil.io/grad.nikhil.io/hba1c-query-comp-epi.jpeg)
 
 ## Notes
 
