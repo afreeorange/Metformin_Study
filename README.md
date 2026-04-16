@@ -2,11 +2,15 @@
 
 ## Development
 
+### Cohort Definition
+
 `Scripts/cohort_raw.sql` generates `Data/cohort_raw.csv`.
 
 [Here is the cohort definition](https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/definition) in OHDSI ATLAS (_please do not edit_!)
 
 `Scripts/cohort_raw.json` can be used to generate the definition in ATLAS ([copypasta](https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/export) and hit "Reload".)
+
+### HbA1C Problems
 
 [Hemoglobin; glycosylated (A1C)](https://athena.ohdsi.org/search-terms/terms/2212392) -- [Other concepts pertaining to HbA1C measurements](https://atlas-demo.ohdsi.org/#/conceptset/1887624/expression) were not present in the `measurements` table (at least in SynPUF 5%) after running this query (thank you Amelia!)
 
