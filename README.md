@@ -22,6 +22,10 @@ GROUP BY c.concept_name, c.concept_id
 ORDER BY measurement_count DESC;
 ```
 
+This yields the Concept ID we want to focus on (as shown below) but the `measurement` table has _all_ `NULL` records for the values; we're not going to use it for this reason.
+
+![](https://public.nikhil.io/grad.nikhil.io/hba1c-comp-epi.jpeg)
+
 ## Notes
 
 Observation period is from Jan 15 2009 -- December 15 2009 (334 days). This is based on [richness/availability](https://atlas-demo.ohdsi.org/#/datasources) of data in SynPUF 5%.
