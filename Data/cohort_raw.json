@@ -1,0 +1,914 @@
+{
+  "ConceptSets": [
+    {
+      "id": 0,
+      "name": "T2DM_Metformin",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "6809",
+              "CONCEPT_ID": 1503297,
+              "CONCEPT_NAME": "metformin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "name": "T2DM_Diagnosis",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Disorder",
+              "CONCEPT_CODE": "44054006",
+              "CONCEPT_ID": 201826,
+              "CONCEPT_NAME": "Type 2 diabetes mellitus",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "2nd line agents",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1545653",
+              "CONCEPT_ID": 45774751,
+              "CONCEPT_NAME": "empagliflozin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1488564",
+              "CONCEPT_ID": 44785829,
+              "CONCEPT_NAME": "dapagliflozin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1373458",
+              "CONCEPT_ID": 43526465,
+              "CONCEPT_NAME": "canagliflozin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1992672",
+              "CONCEPT_ID": 793293,
+              "CONCEPT_NAME": "ertugliflozin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1991302",
+              "CONCEPT_ID": 793143,
+              "CONCEPT_NAME": "semaglutide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "475968",
+              "CONCEPT_ID": 40170911,
+              "CONCEPT_NAME": "liraglutide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1551291",
+              "CONCEPT_ID": 45774435,
+              "CONCEPT_NAME": "dulaglutide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "60548",
+              "CONCEPT_ID": 1583722,
+              "CONCEPT_NAME": "exenatide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "593411",
+              "CONCEPT_ID": 1580747,
+              "CONCEPT_NAME": "sitagliptin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "857974",
+              "CONCEPT_ID": 40166035,
+              "CONCEPT_NAME": "saxagliptin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1100699",
+              "CONCEPT_ID": 40239216,
+              "CONCEPT_NAME": "linagliptin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1368001",
+              "CONCEPT_ID": 43013884,
+              "CONCEPT_NAME": "alogliptin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "4821",
+              "CONCEPT_ID": 1560171,
+              "CONCEPT_NAME": "glipizide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "4815",
+              "CONCEPT_ID": 1559684,
+              "CONCEPT_NAME": "glyburide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "25789",
+              "CONCEPT_ID": 1597756,
+              "CONCEPT_NAME": "glimepiride",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "274783",
+              "CONCEPT_ID": 1502905,
+              "CONCEPT_NAME": "insulin glargine",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "139825",
+              "CONCEPT_ID": 1516976,
+              "CONCEPT_NAME": "insulin detemir",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1670007",
+              "CONCEPT_ID": 35602717,
+              "CONCEPT_NAME": "insulin degludec",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "33738",
+              "CONCEPT_ID": 1525215,
+              "CONCEPT_NAME": "pioglitazone",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "84108",
+              "CONCEPT_ID": 1547504,
+              "CONCEPT_NAME": "rosiglitazone",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "73044",
+              "CONCEPT_ID": 1516766,
+              "CONCEPT_NAME": "repaglinide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "274332",
+              "CONCEPT_ID": 1502826,
+              "CONCEPT_NAME": "nateglinide",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "T2DM_Pregnancy_Exclusion",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "248982007",
+              "CONCEPT_ID": 4088927,
+              "CONCEPT_NAME": "Pregnancy, childbirth and puerperium finding",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "T2DM_Hypertension",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Disorder",
+              "CONCEPT_CODE": "59621000",
+              "CONCEPT_ID": 320128,
+              "CONCEPT_NAME": "Essential hypertension",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "T2DM_Depression",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Disorder",
+              "CONCEPT_CODE": "35489007",
+              "CONCEPT_ID": 440383,
+              "CONCEPT_NAME": "Depressive disorder",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "name": "T2DM_CHD",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Disorder",
+              "CONCEPT_CODE": "53741008",
+              "CONCEPT_ID": 317576,
+              "CONCEPT_NAME": "Coronary arteriosclerosis",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "name": "T2DM_CKD",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Disorder",
+              "CONCEPT_CODE": "709044004",
+              "CONCEPT_ID": 46271022,
+              "CONCEPT_NAME": "Chronic kidney disease",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    }
+  ],
+  "PrimaryCriteria": {
+    "CriteriaList": [
+      {
+        "DrugExposure": {
+          "CodesetId": 0,
+          "OccurrenceStartDate": {
+            "Value": "2009-01-15",
+            "Op": "gte"
+          },
+          "OccurrenceEndDate": {
+            "Value": "2009-12-15",
+            "Op": "lt"
+          },
+          "First": true
+        }
+      }
+    ],
+    "ObservationWindow": {
+      "PriorDays": 365,
+      "PostDays": 0
+    },
+    "PrimaryCriteriaLimit": {
+      "Type": "First"
+    }
+  },
+  "AdditionalCriteria": {
+    "Type": "ALL",
+    "CriteriaList": [],
+    "DemographicCriteriaList": [],
+    "Groups": []
+  },
+  "QualifiedLimit": {
+    "Type": "First"
+  },
+  "ExpressionLimit": {
+    "Type": "First"
+  },
+  "InclusionRules": [
+    {
+      "name": "T2DM Diagnosis",
+      "description": "Must have Type II Diabetes",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 1
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "Adult",
+      "description": "Must be 18+ years old",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [],
+        "DemographicCriteriaList": [
+          {
+            "Age": {
+              "Value": 18,
+              "Op": "gte"
+            }
+          }
+        ],
+        "Groups": []
+      }
+    },
+    {
+      "name": "No pregnancy",
+      "description": "No pregnancy 9 months before or 2 months within the study period",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 3
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 270,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "EndWindow": {
+              "Start": {
+                "Days": 60,
+                "Coeff": -1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseIndexEnd": true,
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 0,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "Hypertension",
+      "description": "May or may not have Hypertension",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 4
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 365,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": " Depression",
+      "description": "May or may not have Depression",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 5
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "CHD flag",
+      "description": "May or may not have Coronary Heart Disease",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 6
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "CKD flag",
+      "description": "May or may not have Chronic Kidney Disease",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 7
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "2nd Line Initiation",
+      "description": "Must have a second line drug that is within the observation period",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "DrugExposure": {
+                "CodesetId": 2
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "Demographics",
+      "expression": {
+        "Type": "ANY",
+        "CriteriaList": [],
+        "DemographicCriteriaList": [
+          {
+            "Gender": [
+              {
+                "CONCEPT_CODE": "F",
+                "CONCEPT_ID": 8532,
+                "CONCEPT_NAME": "FEMALE",
+                "DOMAIN_ID": "Gender",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Gender"
+              },
+              {
+                "CONCEPT_CODE": "M",
+                "CONCEPT_ID": 8507,
+                "CONCEPT_NAME": "MALE",
+                "DOMAIN_ID": "Gender",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Gender"
+              }
+            ],
+            "Race": [
+              {
+                "CONCEPT_CODE": "1",
+                "CONCEPT_ID": 8657,
+                "CONCEPT_NAME": "American Indian or Alaska Native",
+                "DOMAIN_ID": "Race",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Race"
+              },
+              {
+                "CONCEPT_CODE": "2",
+                "CONCEPT_ID": 8515,
+                "CONCEPT_NAME": "Asian",
+                "DOMAIN_ID": "Race",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Race"
+              },
+              {
+                "CONCEPT_CODE": "3",
+                "CONCEPT_ID": 8516,
+                "CONCEPT_NAME": "Black or African American",
+                "DOMAIN_ID": "Race",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Race"
+              },
+              {
+                "CONCEPT_CODE": "4",
+                "CONCEPT_ID": 8557,
+                "CONCEPT_NAME": "Native Hawaiian or Other Pacific Islander",
+                "DOMAIN_ID": "Race",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Race"
+              },
+              {
+                "CONCEPT_CODE": "5",
+                "CONCEPT_ID": 8527,
+                "CONCEPT_NAME": "White",
+                "DOMAIN_ID": "Race",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Race"
+              }
+            ],
+            "Ethnicity": [
+              {
+                "CONCEPT_CODE": "Hispanic",
+                "CONCEPT_ID": 38003563,
+                "CONCEPT_NAME": "Hispanic or Latino",
+                "DOMAIN_ID": "Ethnicity",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Ethnicity"
+              },
+              {
+                "CONCEPT_CODE": "Not Hispanic",
+                "CONCEPT_ID": 38003564,
+                "CONCEPT_NAME": "Not Hispanic or Latino",
+                "DOMAIN_ID": "Ethnicity",
+                "INVALID_REASON_CAPTION": "Unknown",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "VOCABULARY_ID": "Ethnicity"
+              }
+            ]
+          }
+        ],
+        "Groups": []
+      }
+    }
+  ],
+  "EndStrategy": {
+    "DateOffset": {
+      "DateField": "StartDate",
+      "Offset": 334
+    }
+  },
+  "CensoringCriteria": [
+    {
+      "DrugExposure": {
+        "CodesetId": 2,
+        "OccurrenceStartDate": {
+          "Value": "2009-12-15",
+          "Op": "gt"
+        }
+      }
+    }
+  ],
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {},
+  "cdmVersionRange": ">=5.0.0"
+}
