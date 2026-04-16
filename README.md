@@ -8,7 +8,7 @@
 
 [Here is the cohort definition](https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/definition) in OHDSI ATLAS (_please do not edit_!)
 
-`Scripts/cohort_raw.json` can be used to generate the definition in ATLAS ([copypasta](https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/export) and hit "Reload".)
+`Scripts/cohort_raw.json` captures the last known 'working' state of the cohort definition in ATLAS and can be used to generate this definition ([copypasta](https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/export) and hit "Reload".)
 
 ### HbA1C Problems
 
