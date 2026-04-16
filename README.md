@@ -12,7 +12,7 @@
 
 ### HbA1C Problems
 
-[Hemoglobin; glycosylated (A1C)](https://athena.ohdsi.org/search-terms/terms/2212392) -- [Other concepts pertaining to HbA1C measurements](https://atlas-demo.ohdsi.org/#/conceptset/1887624/expression) were not present in the `measurements` table (at least in SynPUF 5%) after running this query (thank you Amelia!)
+Based on the query below, we're looking for [Hemoglobin; glycosylated (A1C)](https://athena.ohdsi.org/search-terms/terms/2212392) as a _measurement_ with Concept ID `2212392` — [other concepts pertaining to HbA1C measurements](https://atlas-demo.ohdsi.org/#/conceptset/1887624/expression) were not present in the `measurements` table (at least in SynPUF 5%) after running this query (thank you Amelia!)
 
 ```sql
 SELECT TOP 100
