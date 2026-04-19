@@ -1,5 +1,17 @@
--- v21 (lol)
-
+-- =============================================================================
+-- T2DM Metformin Cohort v23 – OMOP CDM >= 5.0 – MSSQL / SynPUF 5%
+-- Date window: 2009-01-15 to < 2009-12-15
+-- End strategy: index_date + 334 days
+-- Censoring: first 2nd-line drug exposure starting after 2009-12-15
+-- T2DM diagnosis: >=1 ever (unbounded)
+-- Pregnancy: exactly 0 satisfying BOTH:
+--   StartWindow: [index-270, index]
+--   EndWindow (UseIndexEnd=true): [end_date-60, unbounded forward]
+-- 2nd-line: >=1 starting on or after index (no EndWindow)
+-- Depression/CHD/CKD: characterization flags, unbounded
+-- Hypertension: characterization flag, 365d
+-- eGFR: new concept set (id 8), characterization flag (>=0, unbounded)
+-- =============================================================================
 WITH
     -- ─────────────────────────────────────────────────────────────────────────────
     -- CONCEPT SETS
@@ -124,9 +136,34 @@ WITH
         WHERE
             ancestor_concept_id = 46271022
     ),
+    -- CS 8: eGFR concepts (all with includeDescendants)
+    cs_egfr AS (
+        SELECT DISTINCT
+            descendant_concept_id AS concept_id
+        FROM
+            concept_ancestor
+        WHERE
+            ancestor_concept_id IN (
+                3053283, -- GFR MDRD blacks
+                36306178, -- GFR CKD-EPI blacks
+                3030104, -- GFR Schwartz
+                40771922, -- GFR generic
+                3029859, -- GFR Cystatin C
+                40764999, -- GFR CKD-EPI
+                36303797, -- GFR CKD-EPI non-blacks
+                46236952, -- GFR MDRD generic
+                44790183, -- GFR testing (SNOMED)
+                42869913, -- GFR MDRD males
+                3049187, -- GFR MDRD non-blacks
+                3029829, -- GFR MDRD females
+                1619025, -- GFR CKD-EPI 2021
+                1619026, -- GFR CKD-EPI 2021 Cr+CysC
+                36660257 -- GFR CKD-EPI Cr+CysC
+            )
+    ),
     -- ─────────────────────────────────────────────────────────────────────────────
     -- PRIMARY EVENTS
-    -- End strategy is the index_date + 334 days
+    -- End strategy: index_date + 334 days
     -- ─────────────────────────────────────────────────────────────────────────────
     primary_events AS (
         SELECT
@@ -163,7 +200,7 @@ WITH
     -- ─────────────────────────────────────────────────────────────────────────────
     -- INCLUSION FILTERS
     -- ─────────────────────────────────────────────────────────────────────────────
-    -- T2DM diagnosis is an unbounded window in BOTH directions
+    -- T2DM diagnosis: >=1 ever (unbounded window both directions)
     incl_t2dm AS (
         SELECT DISTINCT
             pe.person_id
@@ -190,10 +227,9 @@ WITH
             YEAR(pe.index_date) - p.year_of_birth >= 18
     ),
     -- Pregnancy: exactly 0 occurrences satisfying BOTH windows:
-    --   StartWindow: condition_start_date in [index_date - 334, index_date]
+    --   StartWindow: condition_start_date in [index_date - 270, index_date]
     --   EndWindow (UseIndexEnd=true, anchor=drug_exposure_end_date):
-    --     condition_start_date in [drug_exposure_end_date - 60, unbounded]
-    -- A condition must fall in the INTERSECTION of both windows!!
+    --     condition_start_date in [drug_exposure_end_date - 60, unbounded forward]
     incl_pregnancy AS (
         SELECT DISTINCT
             pe.person_id
@@ -208,16 +244,12 @@ WITH
                     INNER JOIN cs_pregnancy cs ON co.condition_concept_id = cs.concept_id
                 WHERE
                     co.person_id = pe.person_id
-                    -- StartWindow: [index-334, index]
-                    AND co.condition_start_date >= DATEADD(DAY, -334, pe.index_date)
+                    AND co.condition_start_date >= DATEADD(DAY, -270, pe.index_date)
                     AND co.condition_start_date <= pe.index_date
-                    -- EndWindow: [end_date-60, unbounded forward]
                     AND co.condition_start_date >= DATEADD(DAY, -60, pe.drug_exposure_end_date)
             )
     ),
     -- 2nd-line: >=1 exposure starting on or after index date
-    -- EndWindow removed — no constraint on drug_exposure_end_date
-    -- This captures when a 2nd-line agent was first initiated after metformin
     incl_2nd_line AS (
         SELECT DISTINCT
             pe.person_id
@@ -246,8 +278,44 @@ WITH
             AND p.race_concept_id IN (8657, 8515, 8516, 8557, 8527)
             AND p.ethnicity_concept_id IN (38003563, 38003564)
     ),
+    -- eGFR: >=0 measurements ever (characterization, not a filter)
     -- ─────────────────────────────────────────────────────────────────────────────
-    -- 2ND-LINE DRUG DETAIL: one row per exposure matching the inclusion window
+    -- DIABETES DURATION: earliest T2DM diagnosis per person
+    -- ─────────────────────────────────────────────────────────────────────────────
+    first_t2dm AS (
+        SELECT
+            co.person_id,
+            MIN(co.condition_start_date) AS first_t2dm_date
+        FROM
+            condition_occurrence co
+            INNER JOIN cs_t2dm cs ON co.condition_concept_id = cs.concept_id
+        GROUP BY
+            co.person_id
+    ),
+    -- ─────────────────────────────────────────────────────────────────────────────
+    -- eGFR characterization: most recent measurement on or before index
+    -- ─────────────────────────────────────────────────────────────────────────────
+    egfr_latest AS (
+        SELECT
+            m.person_id,
+            m.measurement_date AS egfr_date,
+            m.value_as_number AS egfr_value,
+            m.unit_source_value AS egfr_unit,
+            ROW_NUMBER() OVER (
+                PARTITION BY
+                    m.person_id
+                ORDER BY
+                    m.measurement_date DESC
+            ) AS rn
+        FROM
+            measurement m
+            INNER JOIN cs_egfr cs ON m.measurement_concept_id = cs.concept_id
+            INNER JOIN primary_events pe ON pe.person_id = m.person_id
+        WHERE
+            m.measurement_date <= pe.index_date
+    ),
+    -- ─────────────────────────────────────────────────────────────────────────────
+    -- 2ND-LINE DRUG DETAIL: one row per exposure starting on or after index
     -- ─────────────────────────────────────────────────────────────────────────────
     second_line_detail AS (
         SELECT
@@ -289,7 +357,9 @@ SELECT
     ce.concept_name AS ethnicity,
     YEAR(pe.index_date) - p.year_of_birth AS age_at_index,
     pe.index_date AS cohort_start_date,
-    -- Effective cohort end: earliest of index+334, censoring, or obs period end
+    -- Diabetes duration
+    ft.first_t2dm_date,
+    DATEDIFF(DAY, ft.first_t2dm_date, pe.index_date) AS diabetes_duration_days,
     CASE
         WHEN c.censor_date IS NOT NULL
         AND c.censor_date < pe.cohort_end_date
@@ -303,6 +373,14 @@ SELECT
     sld.second_line_drug_name,
     sld.second_line_start_date,
     sld.second_line_end_date,
+    -- eGFR characterization (most recent on or before index)
+    eg.egfr_date,
+    eg.egfr_value,
+    eg.egfr_unit,
+    CASE
+        WHEN eg.person_id IS NOT NULL THEN 1
+        ELSE 0
+    END AS egfr_flag,
     -- Comorbidity characterization flags
     -- Hypertension: 365d before index | Depression/CHD/CKD: unbounded (all-time)
     CASE
@@ -362,12 +440,20 @@ FROM
     LEFT JOIN concept cg ON cg.concept_id = p.gender_concept_id
     LEFT JOIN concept cr ON cr.concept_id = p.race_concept_id
     LEFT JOIN concept ce ON ce.concept_id = p.ethnicity_concept_id
+    -- Inclusion filters
     INNER JOIN incl_t2dm i1 ON i1.person_id = pe.person_id
     INNER JOIN incl_adult i2 ON i2.person_id = pe.person_id
     INNER JOIN incl_pregnancy i3 ON i3.person_id = pe.person_id
     INNER JOIN incl_2nd_line i4 ON i4.person_id = pe.person_id
     INNER JOIN incl_demographics i5 ON i5.person_id = pe.person_id
+    -- Diabetes duration
+    LEFT JOIN first_t2dm ft ON ft.person_id = pe.person_id
+    -- eGFR characterization (most recent on or before index)
+    LEFT JOIN egfr_latest eg ON eg.person_id = pe.person_id
+    AND eg.rn = 1
+    -- One row per 2nd-line drug exposure
     LEFT JOIN second_line_detail sld ON sld.person_id = pe.person_id
+    -- Censoring
     LEFT JOIN censor c ON c.person_id = pe.person_id
 ORDER BY
     pe.person_id,
