@@ -1,5 +1,6 @@
 dist
 _site
+.claude
 
 # Created by https://www.toptal.com/developers/gitignore/api/go,rust,latex,linux,macos,python,microsoftoffice,jupyternotebooks,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=go,rust,latex,linux,macos,python,microsoftoffice,jupyternotebooks,node

@@ -1,5 +1,27 @@
 # Among adults with T2DM initiating Metformin monotherapy, what demographic and clinical characteristics are associated with the _timing_ of second-line antidiabetic therapy initiation?
 
+## Game Plan
+
+### Descriptive Analysis
+
+- Distributions of
+  - Time to Escalation (outcome)
+  - Demographics
+  - Comorbidities
+  - Diabetes Duration before index date
+- Top Second-line Drugs
+- Comorbidity co-occurrence
+- Time to Escalation (outcome of interest!)
+  - Demographics
+  - Comorbidities
+  - Diabetes Duration
+
+## Stuff to add to paper
+
+"SynPUF's synthetic dating and left truncation make the metformin-after-diagnosis lag uninterpretable as a clinical quantity." -- apropos the REALLY CRAY CRAY diabetes Duration.
+
+Timeline!
+
 ## Development
 
 ### Cohort Definition
@@ -55,10 +77,6 @@ Drugs and their parent 'classes'. Here's [the Concept Set in ATLAS](https://atla
 ## Authors
 
 Nikhil Anand and Giselle Feng
-
-## TODO
-
-- [ ]
 
 ## License
 
