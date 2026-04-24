@@ -2,6 +2,10 @@
 
 ## Game Plan
 
+### Introduction
+
+Why are we doing this?
+
 ### Descriptive Analysis
 
 - Distributions of
@@ -16,11 +20,25 @@
   - Comorbidities
   - Diabetes Duration
 
+### Modeling
+
+
+
+### Results
+
+TODO: Search the Stratified Cox results and look for good CIs and p-values. Separate into two lists based on HRs: slow and fast escalation. Make bulleted lists of each (and report HRs)
+
+---
+
 ## Stuff to add to paper
+
+Why is this study important?
 
 "SynPUF's synthetic dating and left truncation make the metformin-after-diagnosis lag uninterpretable as a clinical quantity." -- apropos the REALLY CRAY CRAY diabetes Duration.
 
 Timeline!
+
+---
 
 ## Development
 
