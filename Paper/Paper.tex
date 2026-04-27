@@ -1,0 +1,136 @@
+\documentclass[twoside,12pt]{article}
+
+% Set some margins (columnsep is used just for 2-col layouts) and
+% the paper size.
+\usepackage[letterpaper, margin=1in, columnsep=0.5in]{geometry}
+
+% Set up fonts. Use the Bembo-for-poor-people typeface for text, Libertine
+% for Math equations and Inconsolata for monospace (you cannot use anything
+% else with pdfLatex). Note the number styling (`osf`).
+\usepackage[T1]{fontenc}
+\usepackage[expansion=false]{microtype}
+\usepackage[p,osf]{fbb}
+\usepackage{libertinust1math}
+\usepackage{amsmath, amsfonts, amsthm}
+\usepackage{inconsolata}
+
+% Other packages
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage[labelfont=bf, textfont=it]{caption}
+\usepackage{adjustbox}
+\usepackage{blindtext}
+\usepackage{color,soul}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{needspace}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{xfp}
+
+% References. Managed by BibLaTeX with Biber as the backend for APA, MLA, etc.
+% Hyperref will make the citations clickable.
+% https://www.overleaf.com/learn/latex/Biblatex_citation_styles
+\usepackage[style=numeric,backend=biber]{biblatex}
+
+% =============================================================
+
+% Customize maketitle
+\pretitle{\begin{center}\Huge} \posttitle{\end{center}}
+\preauthor{\begin{center}\Large\rmfamily} \postauthor{\end{center}}
+\predate{\begin{center}\small} \postdate{\end{center}}
+
+% Patch Tabular to use monospaced font for the tables
+\AtBeginEnvironment{tabular}{\sffamily}
+
+% Add circles to things. Good for inline lists. \circled{1}, for example.
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+
+% Caption setup. Make the labels smallcaps and bold. Make the entire font size
+% smaller. Rename the figure and table names.
+\captionsetup{
+  labelfont={bf,small,sc},
+  textfont=small,
+  labelsep=period,
+  figurename=FIGURE,
+  tablename=TABLE
+}
+
+% Set some margins, set the typeface, do not indent paragraphs,
+% adjust paragraph line heights.
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.75em}
+
+% Customize footnotes
+\setlength{\footnotesep}{\baselineskip}
+\setlength{\footnotemargin}{0.75em}
+\setlength{\skip\footins}{1em}
+
+% Customize lists
+\setlist[itemize]{itemsep=0.5pt, topsep=0pt, leftmargin=12pt}
+\setlist[enumerate]{itemsep=0.5pt, topsep=0pt, leftmargin=12pt}
+
+% Independent sign
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+% Customize title separation
+% https://tex.stackexchange.com/a/108747
+\titlespacing*{\section}{0pt}{1pt}{1pt}
+\titlespacing*{\subsection}{0pt}{1pt}{1pt}
+\titlespacing*{\subsubsection}{0pt}{1pt}{1pt}
+
+% Header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{lightgray}\fontsize{8pt}{1em}\selectfont\uppercase{Clinical Epidemiology}}
+\fancyhead[C]{\color{lightgray}\fontsize{8pt}{1em}\selectfont{Fall 2025}}
+\fancyhead[R]{\color{lightgray}\fontsize{8pt}{1em}\selectfont\thepage}
+% \fancyfoot[R]{\color{lightgray}\fontsize{8pt}{1em}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Add bibliography
+\addbibresource{References.bib}
+
+% =============================================================
+
+\begin{document}
+\raggedbottom
+
+\title{Constructing a Nuclear Reactor Using Only Coconuts}
+\author{Nikhil Anand}
+\date{Submitted \today}
+
+\maketitle
+
+% \begin{center}
+%   {\LARGE \textbf{Hello World!}}\\[0.75em]
+%   {\large Nikhil Anand (\texttt{NA3213})}\\[0.5em]
+%   {\small Submitted \today}\\[0.5em]
+% \end{center}
+
+% \vspace{0.125em}
+% \noindent\rule{\columnwidth}{0.25pt}
+% \vspace{0.0625em}
+
+% =============================================================
+
+% Here be content... Here's some Lipsum
+\blindtext\blindtext
+\blindtext\blindtext
+\blindtext\blindtext
+\blindtext\blindtext
+\blindtext\blindtext
+\blindtext\blindtext
+\blindtext\blindtext
+
+% =============================================================
+
+\printbibliography
+
+\end{document}
