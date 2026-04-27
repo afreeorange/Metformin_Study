@@ -1,4 +1,4 @@
-\documentclass[twoside,12pt]{article}
+\documentclass[twoside,11pt]{article}
 
 % Set some margins (columnsep is used just for 2-col layouts) and
 % the paper size.
@@ -102,35 +102,58 @@
 \begin{document}
 \raggedbottom
 
-\title{\raggedright Among adults with T2DM initiating Metformin monotherapy, what demographic and clinical characteristics are associated with the timing of second-line antidiabetic therapy initiation? A Descriptive Cohort Study.}
-\author{Giselle Feng \& Nikhil Anand}
-\date{Submitted \today}
+{\Large \textbf{Among adults with T2DM initiating Metformin monotherapy, what demographic and clinical characteristics are associated with the timing of second-line antidiabetic therapy initiation? A Descriptive Cohort Study.}}\\[0.75em]
+{\large Giselle Feng (\texttt{FG2618}) Nikhil Anand (\texttt{NA3213})}\\[0.5em]
+{\small Submitted \today}\\[0.5em]
 
-\maketitle
-
-% \begin{center}
-%   {\LARGE \textbf{Hello World!}}\\[0.75em]
-%   {\large Nikhil Anand (\texttt{NA3213})}\\[0.5em]
-%   {\small Submitted \today}\\[0.5em]
-% \end{center}
-
-% \vspace{0.125em}
+% \vspace{0.0625em}
 % \noindent\rule{\columnwidth}{0.25pt}
 % \vspace{0.0625em}
 
 % =============================================================
 
-% Here be content... Here's some Lipsum
-\blindtext\blindtext
-\blindtext\blindtext
-\blindtext\blindtext
-\blindtext\blindtext
-\blindtext\blindtext
-\blindtext\blindtext
-\blindtext\blindtext
+\section*{Introduction}
+
+Type 2 Diabetes Mellitus (T2DM) affects more than 40 million adults in the United States\cite{cdc_diabetes_stats_2026} and represents one of the leading causes of cardiovascular disease, chronic kidney disease, and premature mortality\cite{ada_soc_2026,cdc_diabetes_stats_2026}. The American Diabetes Association and the European Association for the Study of Diabetes have long recommended metformin as the preferred first-line pharmacological therapy for patients without contraindications, owing to its efficacy, low cost, favorable safety profile, and long track record of use\footnote{Recent guideline updates have refined this position for patients with cardiorenal comorbidities, for whom GLP-1 receptor agonists or SGLT-2 inhibitors are now recommended as first-line agents independent of metformin\cite{davies2022hyperglycemia, ada2025pharm}.}
+
+Although metformin is the first line therapy for diabetes management, T2DM is a progressive disease, and most patients will eventually require additional pharmacotherapy to maintain glycemic control. The timing of this transition, from metformin monotherapy to second-line therapy, is clinically consequential, yet remains incompletely characterized in real-world settings\cite{khunti2013clinical_inertia,davies2018management,davies2022management_update}.
+
+Existing evidence on treatment escalation patterns comes largely from randomized trials and from claims-based pharmacoepidemiologic studies such as Leonard et al. (2018), which examined hypoglycemia risk across oral antidiabetic monotherapies in a Medicaid population. These studies have advanced our understanding of comparative drug safety, but they leave open an important question: what distinguishes patients who escalate to a second-line agent quickly from those who remain on metformin alone for longer? Answering this question requires longitudinal electronic health record (EHR) data linked to clinical and demographic context. This is precisely the kind of data standardized under the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM).
+
+Our study uses OMOP-mapped EHR data from New York-Presbyterian (NYP) to describe the timing of second-line antidiabetic therapy initiation among adults with T2DM who began metformin during the 2009 calendar year. We focus on a single, well-defined study window (January 15, 2009 through December 14, 2009) and restrict the cohort to patients who were escalated within this period. By collapsing each patient's drug exposure history to the first qualifying second-line event, we are able to measure time to escalation as a continuous outcome and examine its association with baseline demographic and clinical characteristics including age, sex, ethnicity, race, hypertension, depression, diabetes duration, coronary heart disease (CHD), and chronic kidney disease (CKD). A secondary aim is to describe the sequences of therapy that follow metformin, characterizing the most common treatment pathways and the drugs that patients most often receive.
 
 % =============================================================
 
+\section*{Significance}
+
+The significance of this work is threefold. First, it provides descriptive real-world evidence on treatment escalation patterns in an urban, diverse, academic medical center population, a setting that differs meaningfully from the Medicaid and commercial claims populations that dominate the existing literature.
+
+Second, by examining the timing of escalation rather than a binary within-one-year outcome, the analysis preserves information about patient trajectories. Time-to-event methods allow the full longitudinal structure of the data to inform estimates of how demographic and comorbidity factors affect the pace of treatment change.
+
+Third, the treatment pathway analysis contributes a descriptive picture of common therapeutic sequences after metformin, which can inform future comparative effectiveness research, care quality assessment, and the design of Clinical Decision Support tools.
+
+We approach this work as a purely descriptive study rather than a causal one. Unmeasured confounders including diabetes severity (HbA1c, disease duration), body mass index, renal function, and prescriber behavior are known to influence escalation decisions and were not captured in this analysis due to data availability constraints. We will still maintain that careful description is a prerequisite for causal inference, and this project aims to explore ways in which this description may be furnished. We also treat our efforts as a structured exercise in applying OMOP-based cohort definition, survival analysis, and treatment pathway methods, some core techniques of modern computational epidemiology.
+
+% =============================================================
+
+\section*{Methods}
+
+% =============================================================
+
+\section*{Results}
+
+% =============================================================
+
+\section*{Discussion}
+
+% =============================================================
+
+\newpage
+\section*{APPENDIX}
+
+% =============================================================
+
+\newpage
 \printbibliography
 
 \end{document}
