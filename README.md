@@ -20,10 +20,6 @@ Why are we doing this?
   - Comorbidities
   - Diabetes Duration
 
-### Modeling
-
-
-
 ### Results
 
 TODO: Search the Stratified Cox results and look for good CIs and p-values. Separate into two lists based on HRs: slow and fast escalation. Make bulleted lists of each (and report HRs)
