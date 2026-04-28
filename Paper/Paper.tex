@@ -102,7 +102,7 @@
 \begin{document}
 \raggedbottom
 
-{\Large \textbf{Among adults with T2DM initiating Metformin monotherapy, what demographic and clinical characteristics are associated with the timing of second-line antidiabetic therapy initiation? A Descriptive Cohort Study.}}\\[0.75em]
+{\Large \textbf{Demographic and Clinical Characteristics associated with Timing of Second-line Antidiabetic Therapy among Adults with T2DM-initiating Metformin Monotherapy -- A Descriptive Cohort Study}}\\[0.75em]
 {\large Giselle Feng (\texttt{FG2618}) Nikhil Anand (\texttt{NA3213})}\\[0.5em]
 {\small Submitted \today}\\[0.5em]
 
@@ -112,6 +112,25 @@
 
 % =============================================================
 
+\section*{Abstract}
+
+\textbf{Background.} Type 2 diabetes mellitus (T2DM) is a progressive disease in which most patients initiated on metformin monotherapy will ultimately require additional second line therapy. The timing of escalation to a second-line agent is clinically important but incompletely characterized and explored in real-world settings.
+
+\textbf{Objective.} To describe the timing of second-line antidiabetic therapy initiation and its association with baseline demographic and clinical characteristics among adults with T2DM who initiated metformin during the 2009 calendar year.
+
+\textbf{Methods.} We constructed a cohort of 4,532 adult patients with T2DM who initiated metformin between January 15 and December 14, 2009 and subsequently received at least one second-line antidiabetic agent during the study window, using OMOP CDM-mapped data from the SynPUF 1\% synthetic Medicare dataset. Time to escalation was measured from the metformin index date to the first second-line drug exposure. Kaplan-Meier curves and a multivariable Cox proportional hazards model were used to assess associations between time to escalation and covariates including age, sex, race, comorbidities (coronary heart disease [CHD], chronic kidney disease [CKD], depression, hypertension), and diabetes duration at index.
+
+\textbf{Results.} The median time to escalation to second line therapy was 67 days (IQR: 30--127). The cohort was predominantly female (62.1\%), White (87.4\%), and elderly (median age 74, IQR 67--82). Sulfonylureas accounted for 79.6\% of first second-line agents, led by glyburide (39.0\%) and glipizide (30.9\%). In the multivariable Cox model, longer diabetes duration, that is defined as the time from first recorded T2DM diagnosis to metformin initiation, was the only characteristic associated with significantly faster escalation (HR 1.36 for 12--18 months vs. 0--6 months; HR 3.46 for 18--24 months vs. 0--6 months). CHD was modestly associated with slower escalation (HR 0.90, 95\% CI 0.82--0.98). No other demographic or comorbidity covariates were statistically significant. Effect modification tests were performed and showed a mild interaction between depression and diabetes duration $\geq 12$ months (LR p=0.040).
+
+\textbf{Conclusions.} In this retrospective observational cohort study derived from synthetic Medicare data, diabetes duration at metformin initiation was the dominant driver of time to second-line therapy. The absence of meaningful associations for most covariates likely reflects the synthetic nature of the underlying data, design restrictions, and unmeasured confounding by disease severity. These findings provide a methodological template for future analyses in richer, real-world datasets.
+
+\small{\textbf{\textit{Keywords:}} \textit{type 2 diabetes mellitus, metformin, treatment escalation, second-line therapy, survival analysis, Kaplan-Meier, Cox proportional hazards, OMOP CDM, pharmacoepidemiology}}
+
+\small{Project source code available at \url{https://github.com/afreeorange/Metformin_Study}}
+
+% =============================================================
+
+\newpage
 \section*{Introduction}
 
 Type 2 Diabetes Mellitus (T2DM) affects more than 40 million adults in the United States\cite{cdc_diabetes_stats_2026} and represents one of the leading causes of cardiovascular disease, chronic kidney disease, and premature mortality\cite{ada_soc_2026,cdc_diabetes_stats_2026}. The American Diabetes Association and the European Association for the Study of Diabetes have long recommended metformin as the preferred first-line pharmacological therapy for patients without contraindications, owing to its efficacy, low cost, favorable safety profile, and long track record of use\footnote{Recent guideline updates have refined this position for patients with cardiorenal comorbidities, for whom GLP-1 receptor agonists or SGLT-2 inhibitors are now recommended as first-line agents independent of metformin\cite{davies2022hyperglycemia, ada2025pharm}.}
@@ -138,23 +157,84 @@ We approach this work as a purely descriptive study rather than a causal one. Un
 
 \section*{Methods}
 
-\subsection*{Study Design and Population}
-
-We conducted a descriptive retrospective cohort study of adults with T2DM who initiated metformin and subsequently escalated to a second-line antidiabetic agent within a 334-day study window from January 15, 2009 through December 14, 2009.
-
 \subsection*{Data Source}
 
-This study used the CMS 2008-2010 Data Entrepreneurs' Synthetic Public Use File (SynPUF), a 1\% sample of Medicare beneficiaries whose data were deidentified and statistically transformed to preserve analytical utility while protecting individual privacy. To construct our cohort, we used ATLAS, an open-source tool that allows for scientific analyses of standardized observational data, the OMOP CDM in our case. The cohort definition was exported to MSSQL and edited further to query the OHDSI SynPUF 1\% database instance.
+This study used the CMS 2008--2010 Data Entrepreneurs' Synthetic Public Use File (SynPUF), a 1\% sample of Medicare beneficiaries whose data were deidentified and statistically transformed to preserve analytical utility while protecting individual privacy. To construct our cohort, we used \textit{ATLAS}, an open-source tool that enables scientific analyses of standardized observational data, using the OMOP CDM in our case. The \href{https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/definition}{cohort definition} was exported to MSSQL and further edited to query the OHDSI SynPUF 1\% database instance.
+
+\subsection*{Study Design and Population}
+
+We conducted a descriptive retrospective cohort study of adults with T2DM who initiated metformin and subsequently escalated to a second-line antidiabetic agent within a 334-day study window from January 15, 2009 through December 14, 2009. This definition implies that, because all patients in our analytic cohort were observed to escalate within the study window, \textit{the dataset contains no censored observations}.
 
 \subsection*{Inclusion and Exclusion Criteria}
 
-Patients were eligible if they \circled{1} had at least one recorded diagnosis of T2DM at any time prior to or during the observation period, \circled{2} initiated metformin between January 15 and December 14, 2009, \circled{3} initiated at least one non-metformin, non-insulin second-line antidiabetic agent on or after the metformin index date within the study window and \circled{4} were aged 18 or older at the time of metformin initiation.
+Patients were eligible if they: \circled{1} had at least one recorded diagnosis of T2DM at any time prior to or during the observation period; \circled{2} initiated metformin between January 15 and December 14, 2009; \circled{3} initiated at least one non-metformin, non-insulin second-line antidiabetic agent on or after the metformin index date within the study window; and \circled{4} were aged 18 or older at the time of metformin initiation.
 
-Patients were excluded if they had evidence of an ongoing or recently resolved pregnancy. This is  defined as a pregnancy condition with an onset in the 270 days prior to the metformin index date and a recorded end date within 60 days of the cohort end date or later. This prevents the misclassification of gestational diabetes management as T2DM treatment escalation. Patients whose recorded time to escalation was zero days (same-day metformin and second-line initiation) were excluded from survival analyses, as we are mainly interested at the timing of the escalation.
+Patients were excluded if they had evidence of pregnancy overlapping the study period in a bid to prevent inclusion postpartum hyperglycemia which can mimic, but is etiologically distinct from, T2DM, thereby reducing misclassification of gestational diabetes management as T2DM treatment escalation.
+
+We also excluded patients whose recorded time to escalation was zero days (same-day metformin and second-line initiation) with the rationale that these events were unlikely to represent treatment escalation in the clinical sense intended by our study: metformin would not have had any opportunity to demonstrate inadequate glycemic effect. We assumed that these events would reflect the initiation of some combination therapy, or were artifacts from shared encounter datestamps. Their inclusion would also be inconsistent with a desired new-user design\cite{lund2015active_comparator} which requires a ‘clean’ baseline period during which the patients have not yet started the treatment (second-line initiation in our case.) A total of 4,532 patients met all inclusion and exclusion criteria and were included in the final analytic cohort.
+
+\subsection*{Outcome Definition}
+
+The primary outcome was time to second-line antidiabetic therapy initiation, defined as the number of days from the metformin index date\footnote{Note that this is erroneously termed \texttt{cohort\_start\_date} in our code.} to the first non-metformin antidiabetic drug exposure recorded\footnote{called second\_line\_start\_date} within the study window. For patients with multiple second-line drug exposures, the record with the earliest start date was retained and used to calculate the timing.
+
+\subsection*{Covariates}
+
+Our covariates consisted of these demographic characteristics: Age at index, Sex (male/female), Race (American Indian or Alaska Native, Asian, Black or African American, Native Hawaiian or Other Pacific Islander, White) and Ethnicity (Hispanic or Latino, Not Hispanic or Latino)\footnote{Top-level standard OMOP concepts for each characteristic.}.
+
+Clinical covariates were selected based on prior epidemiologic evidence by Nowakowska et al\cite{nowakowska2019}, who reported that hypertension and chronic kidney disease (CKD) were the most prevalent age-standardized comorbidities among patients with T2DM overall, while depression in women and coronary heart disease (CHD) in men emerged as the second most prevalent conditions in sex-specific analyses. Drawing on these findings, we incorporated all four conditions (hypertension, CKD, depression, and CHD) as binary clinical covariates.
+
+We additionally constructed a ``Diabetes Duration'' covariate, defined as the number of days between each patient's earliest recorded T2DM diagnosis and their metformin index date. This was categorized into four ordinal bins: 0--6 months, 6--12 months, 12--18 months, and 18--24 months. This covariate captures clinically meaningful heterogeneity in the cohort, where shorter intervals identify patients initiated on metformin soon after diagnosis, while longer intervals reflect patients initially managed with lifestyle modification prior to pharmacotherapy.
+
+We intended to include additional clinical variables shown in the literature to influence treatment escalation decisions, including HbA1c, estimated glomerular filtration rate (eGFR), and BMI. However, these measurements were not sufficiently populated in the SynPUF 1\% dataset and were therefore omitted. We acknowledge this as a study limitation.
+
+\subsection*{Statistical Analysis}
+
+All analyses were conducted in Python (v3) using pandas for data manipulation, lifelines for time-to-event modeling, scipy.stats for hypothesis testing, and matplotlib/seaborn for visualization. The analytic pipeline was structured in four sequential layers so that each addressed a distinct epidemiologic question and could be interpreted independently of the others.
+
+\textbf{Layer 1: Descriptive analysis}. Baseline characteristics were summarized using medians with interquartile ranges for continuous variables and counts with percentages for categorical variables. We characterized the distribution of time to second-line initiation, the frequency of each second-line agent, and the co-occurrence of comorbidities. Exploratory visualizations included histograms, boxplots stratified by demographic and clinical subgroups, and heatmaps depicting comorbidity co-occurrence. Mann-Whitney U tests were used to compare median time to escalation across binary subgroups.
+
+\textbf{Layer 2: Survival analysis}. We modeled time to second-line initiation using both nonparametric and semiparametric survival methods. Kaplan-Meier curves were generated for the overall cohort and stratified by gender, race, age group, ethnicity, diabetes duration category, first second-line drug class, and each binary comorbidity (hypertension, depression, CHD, CKD). Differences in survival distributions across strata were tested using the multivariate log-rank test. We then fit a multivariable Cox proportional hazards model with the following covariates: age at index (continuous), sex (male = 1, female = 0), race (with White as the reference category), each comorbidity flag, and diabetes duration category (with 0–6 months as the reference). Hazard ratios were reported with 95\% confidence intervals. As noted, because the dataset contains no censored observations, the Kaplan-Meier estimator reduces to the empirical cumulative distribution function of escalation times, and the Cox model estimates relative differences in escalation speed (without the censoring adjustments typically used in survival analysis.)
+
+\textbf{Layer 3: Stratified analyses}. To evaluate whether covariate associations varied across patient subgroups, we fit separate Cox models within strata defined by gender, age group, ethnicity, diabetes duration, and each binary comorbidity. Stratified models used a light L2 penalty (0.1) to stabilize estimates given small within-stratum sample sizes. Strata with fewer than 10 patients or no covariate variance were skipped. Hazard ratios from each stratified model were tabulated for visual comparison.
+
+To evaluate effect modification, we tested whether the association between each comorbidity and escalation timing differed across subgroups defined by sex, age (dichotomized at 65 years), and the presence of other comorbidities. For each candidate modifier, we fit two nested Cox models (one with main effects only and one augmenting that model with a single interaction term) and compared them using a likelihood ratio test. We also examined whether longer diabetes duration ($\geq 12$ months vs.\ $<12$ months at index) altered the apparent effect of each comorbidity, sex, and age on escalation speed.
+
+\textbf{Layer 4: Treatment pathway analysis}. Using the full drug-exposure-level dataset (i.e., not collapsed to one row per patient), we reconstructed the ordered sequence of second-line drugs received by each patient within the study window. Consecutive duplicate exposures of the same drug were collapsed (e.g., glyburide → glyburide → glipizide was reduced to glyburide → glipizide) to focus the analysis on transitions rather than refill patterns. We tabulated the most common pathways, computed the distribution of distinct second-line agents per patient, and constructed a state-transition matrix (TODO FIGURE) counting the observed switches between specific drug pairs. Drug-class groupings (sulfonylureas, thiazolidinediones, meglitinides, DPP-4 inhibitors, shown in Table \ref{tab:drug_classes}) were applied to provide a higher-level view of treatment patterns, and Kaplan-Meier curves of time to escalation were generated by first second-line drug class to descriptively examine whether class selection covaried with escalation timing.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ll}
+    \textbf{Drug Class}    & \textbf{Agents}                                            \\ \hline
+    \textbf{SGLT-2i}       & empagliflozin, dapagliflozin, canagliflozin, ertugliflozin \\
+    \textbf{GLP-1 RA}      & semaglutide, liraglutide, dulaglutide, exenatide           \\
+    \textbf{DPP-4i}        & sitagliptin, saxagliptin, linagliptin, alogliptin          \\
+    \textbf{Sulfonylureas} & glipizide, glyburide, glimepiride                          \\
+    \textbf{Insulin}       & insulin glargine, insulin detemir, insulin degludec        \\
+    \textbf{TZDs}          & pioglitazone, rosiglitazone                                \\
+  \end{tabular}
+  \caption{Drug class groupings used in treatment pathway analysis.}
+  \label{tab:drug_classes}
+\end{table}
 
 % =============================================================
 
 \section*{Results}
+
+We frame all findings as descriptive and exploratory and do not draw causal conclusions from any of the modeling layers. Key sources of unmeasured confounding, particularly disease severity (HbA1c, BMI, eGFR), prescriber behavior, and healthcare utilization intensity, are addressed in the Limitations section.
+
+Overall, within the scope of our study and with the dataset used, we could not find a statistically significant association between our covariates of interest and the time to second-line treatment initiation. We found very few statistically significant results in our Stratified Cox Analysis.
+
+\subsection*{Cohort Building and Descriptive Statistics}
+
+The raw data contained 24,483 drug exposure rows across 9,662 unique patients. After excluding exposures occurring after the cohort end date, 16,271 exposures remained across 8,855 patients. An additional 1,815 exposures on day 0 were noted. After excluding patients with zero-day time to escalation (n=1,808), and further restricting to patients with positive diabetes duration, the final analytic sample comprised 4,532 unique patients.
+
+The median age at metformin initiation was 74 years (IQR: 67–82). The cohort was 62.2\% female and 87.3\% White. All patients were classified as non-Hispanic or Latino in this extract, reflecting a limitation of the SynPUF sampling frame. The most common age group was 75 and older (47.2\%). Among comorbidities, CHD was highly prevalent (86.5\%), followed by CKD (57.0\%), depression (53.7\%), and hypertension (9.9\%).
+
+\subsection*{Time to Second-Line Therapy Initiation}
+
+Overall, the median time from metformin initiation to escalation of second-line therapy was 67 days (IQR: 30-127 days), with a mean of 85.9 days. Boxplot comparisons across demographic and comorbidity groups suggested similar distributions across these categories. [Figure : Boxplots of time to escalation by demographic and comorbidity group]
+
+Stratified Kaplan Meier curves were estimated across all eight covariates but did not reveal statistical significant differences in escalation timing. For diabetes duration (time from first recorded T2DM diagnosis to metformin initiation), patients with 18-24 months of prior diabetes duration escalated substantially faster than those with 0-6 months [Figure X: Boxplot of time to escalation by diabetes duration]
 
 % =============================================================
 
