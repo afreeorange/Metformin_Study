@@ -44,6 +44,8 @@ Timeline!
 
 [Here is the cohort definition](https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/definition) in OHDSI ATLAS (_please do not edit_!)
 
+[Updated definition](https://atlas-demo.ohdsi.org/#/cohortdefinition/1797130/definition)
+
 `Scripts/cohort_raw.json` captures the last known 'working' state of the cohort definition in ATLAS and can be used to generate this definition ([copypasta](https://atlas-demo.ohdsi.org/#/cohortdefinition/1796944/export) and hit "Reload".)
 
 ### HbA1C Problems

@@ -138,6 +138,20 @@ We approach this work as a purely descriptive study rather than a causal one. Un
 
 \section*{Methods}
 
+\subsection*{Study Design and Population}
+
+We conducted a descriptive retrospective cohort study of adults with T2DM who initiated metformin and subsequently escalated to a second-line antidiabetic agent within a 334-day study window from January 15, 2009 through December 14, 2009.
+
+\subsection*{Data Source}
+
+This study used the CMS 2008-2010 Data Entrepreneurs' Synthetic Public Use File (SynPUF), a 1\% sample of Medicare beneficiaries whose data were deidentified and statistically transformed to preserve analytical utility while protecting individual privacy. To construct our cohort, we used ATLAS, an open-source tool that allows for scientific analyses of standardized observational data, the OMOP CDM in our case. The cohort definition was exported to MSSQL and edited further to query the OHDSI SynPUF 1\% database instance.
+
+\subsection*{Inclusion and Exclusion Criteria}
+
+Patients were eligible if they \circled{1} had at least one recorded diagnosis of T2DM at any time prior to or during the observation period, \circled{2} initiated metformin between January 15 and December 14, 2009, \circled{3} initiated at least one non-metformin, non-insulin second-line antidiabetic agent on or after the metformin index date within the study window and \circled{4} were aged 18 or older at the time of metformin initiation.
+
+Patients were excluded if they had evidence of an ongoing or recently resolved pregnancy. This is  defined as a pregnancy condition with an onset in the 270 days prior to the metformin index date and a recorded end date within 60 days of the cohort end date or later. This prevents the misclassification of gestational diabetes management as T2DM treatment escalation. Patients whose recorded time to escalation was zero days (same-day metformin and second-line initiation) were excluded from survival analyses, as we are mainly interested at the timing of the escalation.
+
 % =============================================================
 
 \section*{Results}
