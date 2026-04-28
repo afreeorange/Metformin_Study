@@ -234,31 +234,57 @@ The median age at metformin initiation was 74 years (IQR: 67–82). The cohort w
 
 Overall, the median time from metformin initiation to escalation of second-line therapy was 67 days (IQR: 30-127 days), with a mean of 85.9 days. Boxplot comparisons across demographic and comorbidity groups suggested similar distributions across these categories.
 
-\begin{figure}[H]
+\begin{figure}
   \centering
   \includegraphics[width=0.95\textwidth]{../Analysis/figures/time-to-escalation-demographics.png}
   \caption{\small Time to Escalation by Demographics}
   \label{fig:km1}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
   \centering
   \includegraphics[width=0.95\textwidth]{../Analysis/figures/time-to-escalation-comorbidity.png}
-  \caption{\small Time to Escalation by Demographics}
-  \label{fig:km1}
+  \caption{\small Time to Escalation by Comorbidity}
+  \label{fig:km2}
 \end{figure}
 
-[Figure : Boxplots of time to escalation by demographic and comorbidity group]
+Stratified Kaplan Meier curves were estimated across all eight covariates but did not reveal statistical significant differences in escalation timing. For diabetes duration (time from first recorded T2DM diagnosis to metformin initiation), patients with 18-24 months of prior diabetes duration escalated substantially faster than those with 0-6 months.
 
-Stratified Kaplan Meier curves were estimated across all eight covariates but did not reveal statistical significant differences in escalation timing. For diabetes duration (time from first recorded T2DM diagnosis to metformin initiation), patients with 18-24 months of prior diabetes duration escalated substantially faster than those with 0-6 months [Figure X: Boxplot of time to escalation by diabetes duration]
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Analysis/figures/km-stratified.png}
+  \caption{\small Kaplan-Meier Curves stratified by covariate}
+  \label{fig:km4}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Analysis/figures/time-to-escalation-diabetes-duration.png}
+  \caption{\small Time to Escalation by Diabetes Duration}
+  \label{fig:km3}
+\end{figure}
 
 \subsection*{Drug class and Treatment Pathways}
 
-Sulfonylureas was the dominant second-line drug class, representing 79.8\% of first-line escalations. Within this class, glyburide was most common (39.0\%), followed by glipizide (30.9\%) and glimepiride (9.7\%). DPP-4 inhibitors (sitagliptin, saxagliptin) comprised only 1.7\% of escalations, and insulin was used in fewer than 0.5\% of patients. This distribution reflects the real world clinical practice of 2009, when sulfonylureas still dominated antidiabetic treatment\cite{turner2014ambulatory,kitten2019prescribing}. [Figure: Distribution of drug classes]
+Sulfonylureas was the dominant second-line drug class, representing 79.8\% of first-line escalations. Within this class, glyburide was most common (39.0\%), followed by glipizide (30.9\%) and glimepiride (9.7\%). DPP-4 inhibitors (sitagliptin, saxagliptin) comprised only 1.7\% of escalations, and insulin was used in fewer than 0.5\% of patients. This distribution reflects the real world clinical practice of 2009, when sulfonylureas still dominated antidiabetic treatment\cite{turner2014ambulatory,kitten2019prescribing}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Analysis/figures/distribution-2nd-line-agent.png}
+  \caption{\small Distribution of first second-line agent after metformin}
+  \label{fig:drug-distro}
+\end{figure}
 
 \subsection*{Cox Proportional Hazard Models}
 
-Longer diabetes duration at metformin initiation was the dominant predictor of faster escalation. Compared with patients who had 0–6 months of prior diabetes duration, those with 12–18 months were escalated significantly faster (HR 1.37, 95\% CI 1.24–1.51), and those with 18–24 months were escalated even faster (HR 3.52, 95\% CI 3.02–4.10). The hazard ratio for the 6–12 month duration group was not statistically significant (HR 1.06, 95\% CI 0.97–1.17, p=0.21). CHD was modestly associated with a lower hazard of escalation (HR 0.89, 95\% CI 0.81–0.97, p=0.01), implying that patients with CHD may have escalated more slowly on average. No other covariate achieved statistical significance, including age, sex, race, CKD, depression, and hypertension.[Figure X: Forest plot of hazard ratios from multivariable Cox model]
+Longer diabetes duration at metformin initiation was the dominant predictor of faster escalation. Compared with patients who had 0–6 months of prior diabetes duration, those with 12–18 months were escalated significantly faster (HR 1.37, 95\% CI 1.24–1.51), and those with 18–24 months were escalated even faster (HR 3.52, 95\% CI 3.02–4.10). The hazard ratio for the 6–12 month duration group was not statistically significant (HR 1.06, 95\% CI 0.97–1.17, p=0.21). CHD was modestly associated with a lower hazard of escalation (HR 0.89, 95\% CI 0.81–0.97, p=0.01), implying that patients with CHD may have escalated more slowly on average. No other covariate achieved statistical significance, including age, sex, race, CKD, depression, and hypertension.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Analysis/figures/cox-hr.png}
+  \caption{\small Time to Escalation by Diabetes Duration}
+  \label{fig:km3}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -304,8 +330,6 @@ The association between prior diabetes duration and faster escalation is clinica
 Literature supplies evidence that sex, race, and some comorbidities are predictors of treatment escalation timing or intensity, with Black and South Asian patients shown to intensify to second- and third-line therapy more slowly than White patients\cite{mathur2020ethnic_disparities}, and female sex associated with higher risks of treatment modification after initiating second-line antidiabetic therapy\cite{liss2023treatment_modification}. The surprising lack of results in this context may reflect several shortcomings of the study, specifically the use of synthetic data in which patient level covariate-outcome relationships might be attenuated. The fact that we restricted the cohort to escalated patients only could be another factor: the probability of escalation itself could have been a more informative outcome.
 
 \subsection*{Limitations}
-
-LIMITATIONS
 
 \textbf{Selection bias}. This dataset includes only patients who were escalated to a second-line agent. Patients who remained on metformin monotherapy throughout the observation period are excluded. All survival analyses therefore describe the distribution of escalation timing among those who escalated, not the overall probability of escalation.
 
