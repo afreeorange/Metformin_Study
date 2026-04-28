@@ -12,6 +12,7 @@
 -- Hypertension: characterization flag, 365d
 -- eGFR: new concept set (id 8), characterization flag (>=0, unbounded)
 -- =============================================================================
+
 WITH
     -- ─────────────────────────────────────────────────────────────────────────────
     -- CONCEPT SETS
