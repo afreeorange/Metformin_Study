@@ -232,7 +232,23 @@ The median age at metformin initiation was 74 years (IQR: 67–82). The cohort w
 
 \subsection*{Time to Second-Line Therapy Initiation}
 
-Overall, the median time from metformin initiation to escalation of second-line therapy was 67 days (IQR: 30-127 days), with a mean of 85.9 days. Boxplot comparisons across demographic and comorbidity groups suggested similar distributions across these categories. [Figure : Boxplots of time to escalation by demographic and comorbidity group]
+Overall, the median time from metformin initiation to escalation of second-line therapy was 67 days (IQR: 30-127 days), with a mean of 85.9 days. Boxplot comparisons across demographic and comorbidity groups suggested similar distributions across these categories.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Analysis/figures/time-to-escalation-demographics.png}
+  \caption{\small Time to Escalation by Demographics}
+  \label{fig:km1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Analysis/figures/time-to-escalation-comorbidity.png}
+  \caption{\small Time to Escalation by Demographics}
+  \label{fig:km1}
+\end{figure}
+
+[Figure : Boxplots of time to escalation by demographic and comorbidity group]
 
 Stratified Kaplan Meier curves were estimated across all eight covariates but did not reveal statistical significant differences in escalation timing. For diabetes duration (time from first recorded T2DM diagnosis to metformin initiation), patients with 18-24 months of prior diabetes duration escalated substantially faster than those with 0-6 months [Figure X: Boxplot of time to escalation by diabetes duration]
 
@@ -283,7 +299,7 @@ Likelihood ratio tests for 12 pre-specified interaction terms yielded no statist
 
 This descriptive retrospective cohort study examined time to second-line antidiabetic therapy initiation in 4,679 adult patients with T2DM who escalated beyond metformin monotherapy during a 334-day window in 2009. Our principal finding was that diabetes duration at the time of metformin initiation was strongly and consistently associated with faster escalation: patients with 18-24 months of established T2DM prior to starting metformin were escalated more than three times faster than those newly diagnosed. Across nearly all stratified and interaction analyses, this was the only covariate with repeated effects. Most other demographic and comorbidity factors (including age, sex, race, CHD, CKD, and hypertension) were not statistically associated with the rate of escalation.
 
-The association between prior diabetes duration and faster escalation is clinically plausible. Biologically, longer disease duration means more beta-cell deterioration at baseline, this leaves less residual capacity for monotherapy\cite{ukpds1995overview}. This means that patients with an established disease history are therefore more likely to experience inadequate glycemic control on a single drug, independent of any prescriber decision. Treatment history could be another explanation: patients with longer prior duration may have already documented failure of other non-pharmacological approaches before metformin was initiated. This documented prior failure could be the reason for earlier escalation once metformin is started, since by the time metformin is initiated, lifestyle modifications have already been found to be insufficient.
+The association between prior diabetes duration and faster escalation is clinically plausible. Biologically, longer disease duration means more beta-cell deterioration at baseline, this leaves less residual capacity for monotherapy\cite{sims2020beta_cell}. This means that patients with an established disease history are therefore more likely to experience inadequate glycemic control on a single drug, independent of any prescriber decision. Treatment history could be another explanation: patients with longer prior duration may have already documented failure of other non-pharmacological approaches before metformin was initiated. This documented prior failure could be the reason for earlier escalation once metformin is started, since by the time metformin is initiated, lifestyle modifications have already been found to be insufficient.
 
 Literature supplies evidence that sex, race, and some comorbidities are predictors of treatment escalation timing or intensity, with Black and South Asian patients shown to intensify to second- and third-line therapy more slowly than White patients\cite{mathur2020ethnic_disparities}, and female sex associated with higher risks of treatment modification after initiating second-line antidiabetic therapy\cite{liss2023treatment_modification}. The surprising lack of results in this context may reflect several shortcomings of the study, specifically the use of synthetic data in which patient level covariate-outcome relationships might be attenuated. The fact that we restricted the cohort to escalated patients only could be another factor: the probability of escalation itself could have been a more informative outcome.
 
@@ -316,6 +332,11 @@ Future work in richer, real-world datasets could address many of the limitations
 
 \newpage
 \section*{APPENDIX}
+
+\subsection*{Supplementary Figures}
+
+
+\subsection*{Supplementary Tables}
 
 % =============================================================
 
