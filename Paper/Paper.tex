@@ -285,7 +285,7 @@ Stratified Kaplan Meier curves were estimated across all eight covariates but di
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{../Analysis/figures/km-2nd-line-class.png}
-  \caption{\small Kaplan-Meier Curves stratified by covariate}
+  \caption{\small Kaplan-Meier Curves stratified by 2nd line Drug Class}
   \label{fig:km4}
 \end{figure}
 
@@ -300,13 +300,40 @@ Sulfonylureas was the dominant second-line drug class, representing 79.8\% of fi
   \label{fig:drug-distro}
 \end{figure}
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{clcc}
+    \hline
+    \textbf{\#} & \textbf{Treatment Pathway}                                                        & \textbf{N} & \textbf{\%} \\
+    \hline
+    1           & metformin $\rightarrow$ glyburide                                                 & 2457       & 27.7        \\
+    2           & metformin $\rightarrow$ glipizide                                                 & 1487       & 16.8        \\
+    3           & metformin $\rightarrow$ rosiglitazone                                             & 477        & 5.4         \\
+    4           & metformin $\rightarrow$ glyburide $\rightarrow$ glipizide                         & 378        & 4.3         \\
+    5           & metformin $\rightarrow$ glimepiride                                               & 365        & 4.1         \\
+    6           & metformin $\rightarrow$ pioglitazone                                              & 351        & 4.0         \\
+    7           & metformin $\rightarrow$ glipizide $\rightarrow$ glyburide                         & 350        & 4.0         \\
+    8           & metformin $\rightarrow$ rosiglitazone $\rightarrow$ glyburide                     & 150        & 1.7         \\
+    9           & metformin $\rightarrow$ sitagliptin                                               & 138        & 1.6         \\
+    10          & metformin $\rightarrow$ glyburide $\rightarrow$ rosiglitazone                     & 114        & 1.3         \\
+    11          & metformin $\rightarrow$ glyburide $\rightarrow$ glimepiride                       & 106        & 1.2         \\
+    12          & metformin $\rightarrow$ rosiglitazone $\rightarrow$ glipizide                     & 106        & 1.2         \\
+    13          & metformin $\rightarrow$ pioglitazone $\rightarrow$ glyburide                      & 81         & 0.9         \\
+    14          & metformin $\rightarrow$ glyburide $\rightarrow$ glipizide $\rightarrow$ glyburide & 80         & 0.9         \\
+    15          & metformin $\rightarrow$ glyburide $\rightarrow$ pioglitazone                      & 80         & 0.9         \\
+    \hline
+  \end{tabular}
+  \caption{Top 15 treatment pathways following metformin initiation.}
+  \label{tab:top_pathways}
+\end{table}
+
 \subsection*{Cox Proportional Hazard Models}
 
 Longer diabetes duration at metformin initiation was the dominant predictor of faster escalation. Compared with patients who had 0–6 months of prior diabetes duration, those with 12–18 months were escalated significantly faster (HR 1.37, 95\% CI 1.24–1.51), and those with 18–24 months were escalated even faster (HR 3.52, 95\% CI 3.02–4.10). The hazard ratio for the 6–12 month duration group was not statistically significant (HR 1.06, 95\% CI 0.97–1.17, p=0.21). CHD was modestly associated with a lower hazard of escalation (HR 0.89, 95\% CI 0.81–0.97, p=0.01), implying that patients with CHD may have escalated more slowly on average. No other covariate achieved statistical significance, including age, sex, race, CKD, depression, and hypertension.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth]{../Analysis/figures/cox-hr.png}
+  \includegraphics[width=0.80\textwidth]{../Analysis/figures/cox-hr.png}
   \caption{\small }
   \label{fig:forest}
 \end{figure}
@@ -377,7 +404,7 @@ Literature supplies evidence that sex, race, and some comorbidities are predicto
 
 \textbf{Selection bias}. This dataset includes only patients who were escalated to a second-line agent. Patients who remained on metformin monotherapy throughout the observation period are excluded. All survival analyses therefore describe the distribution of escalation timing among those who escalated, not the overall probability of escalation.
 
-\textbf{SYNPUF 1 \% dataset}.  As mentioned previously, since SynPUF is a synthetic dataset, it has been statistically perturbed to protect patient privacy and prevent reidentification. Individual-level covariate-outcome associations may therefore be attenuated, inflated, or otherwise distorted. Synthetic data caveat. It is also intended for methods development and not clinical inference. The study population was additionally homogeneous (entirely non-Hispanic, predominantly White and elderly), which reduces the statistical power to detect associations that may be more apparent in more diverse populations.
+\textbf{SYNPUF 1\% dataset}.  As mentioned previously, since SynPUF is a synthetic dataset, it has been statistically perturbed to protect patient privacy and prevent reidentification. Individual-level covariate-outcome associations may therefore be attenuated, inflated, or otherwise distorted. Synthetic data caveat. It is also intended for methods development and not clinical inference. The study population was additionally homogeneous (entirely non-Hispanic, predominantly White and elderly), which reduces the statistical power to detect associations that may be more apparent in more diverse populations.
 
 \textbf{Unmeasured confounders}. There are some other key confounders that we could not take into account in our study. These are HbA1c, BMI, renal function (eGFR), medication adherence and disease severity, all of which have been identified as baseline risk factors associated with the timing of treatment intensification in patients with type 2 diabetes. Disease Severity is the most important unmeasured confounder as patients with higher baseline glucose or greater disease burden would be expected to escalate faster and to have more comorbidities..
 
@@ -391,7 +418,7 @@ Literature supplies evidence that sex, race, and some comorbidities are predicto
 
 \section*{Conclusions}
 
-This study used OMOP-mapped synthetic claims data to characterize the demographic and clinical correlates of second-line antidiabetic therapy initiation. Although our analyses did not yield statistically significant associations of interest, our work led us to (1) appreciate the methodological tractability afforded by standardized data models such as the OMOP CDM (2) the value of understanding, as feasibly as possible, the processes that generate the clinical signal underlying medical decision-making. Meaningful inference from observational data depends not only on the analytic methods applied but also on the fidelity with which those data capture underlying patient and provider behaviors.
+This study used OMOP-mapped synthetic claims data to characterize the demographic and clinical correlates of second-line antidiabetic therapy initiation. Although our analyses did not yield statistically significant associations of interest, our work led us to \circled{1} appreciate the methodological tractability afforded by standardized data models such as the OMOP CDM \circled{2} the value of understanding, as feasibly as possible, the processes that generate the clinical signal underlying medical decision-making. Meaningful inference from observational data depends not only on the analytic methods applied but also on the fidelity with which those data capture underlying patient and provider behaviors.
 
 Future work in richer, real-world datasets could address many of the limitations discussed. A new-user, active-comparator design comparing patients who escalated quickly versus slowly, with propensity-score adjustment for disease severity, could give us more insights on the causal links between the covariates and the outcome. Additionally, sequence-aware modeling (for example hidden Markov models or multi-state survival models) could capture the complexity of the treatment signal that static time-to-event approaches cannot.
 
@@ -435,39 +462,12 @@ Future work in richer, real-world datasets could address many of the limitations
 
 \subsection*{Supplementary Tables}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{clcc}
-    \hline
-    \textbf{\#} & \textbf{Treatment Pathway}                                                        & \textbf{N} & \textbf{\%} \\
-    \hline
-    1           & metformin $\rightarrow$ glyburide                                                 & 2457       & 27.7        \\
-    2           & metformin $\rightarrow$ glipizide                                                 & 1487       & 16.8        \\
-    3           & metformin $\rightarrow$ rosiglitazone                                             & 477        & 5.4         \\
-    4           & metformin $\rightarrow$ glyburide $\rightarrow$ glipizide                         & 378        & 4.3         \\
-    5           & metformin $\rightarrow$ glimepiride                                               & 365        & 4.1         \\
-    6           & metformin $\rightarrow$ pioglitazone                                              & 351        & 4.0         \\
-    7           & metformin $\rightarrow$ glipizide $\rightarrow$ glyburide                         & 350        & 4.0         \\
-    8           & metformin $\rightarrow$ rosiglitazone $\rightarrow$ glyburide                     & 150        & 1.7         \\
-    9           & metformin $\rightarrow$ sitagliptin                                               & 138        & 1.6         \\
-    10          & metformin $\rightarrow$ glyburide $\rightarrow$ rosiglitazone                     & 114        & 1.3         \\
-    11          & metformin $\rightarrow$ glyburide $\rightarrow$ glimepiride                       & 106        & 1.2         \\
-    12          & metformin $\rightarrow$ rosiglitazone $\rightarrow$ glipizide                     & 106        & 1.2         \\
-    13          & metformin $\rightarrow$ pioglitazone $\rightarrow$ glyburide                      & 81         & 0.9         \\
-    14          & metformin $\rightarrow$ glyburide $\rightarrow$ glipizide $\rightarrow$ glyburide & 80         & 0.9         \\
-    15          & metformin $\rightarrow$ glyburide $\rightarrow$ pioglitazone                      & 80         & 0.9         \\
-    \hline
-  \end{tabular}
-  \caption{Top 15 treatment pathways following metformin initiation.}
-  \label{tab:top_pathways}
-\end{table}
-
 \subsubsection*{Cox Tables Stratified by Covariate}
 
 \begin{table}[H]
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{llcccccc}
+\begin{tabular}{llccccc}
 \hline
 \textbf{Stratum} & \textbf{N} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p} \\
 \hline
@@ -487,7 +487,7 @@ Diabetes duration=6--12 mo  & 1800 & hypertension  & 0.937093 & 0.804981 & 1.090
 \hline
 Diabetes duration=12--18 mo & 1939 & age\_at\_index & 1.002979 & 0.999746 & 1.006222 & 0.070917 \\
 Diabetes duration=12--18 mo & 1939 & male          & 1.021166 & 0.935675 & 1.114467 & 0.638699 \\
-Diabetes duration=12--18 mo & 1939 & chd           & 0.823213 & 0.716991 & 0.945172 & 0.005781 \\
+Diabetes duration=12--18 mo & 1939 & chd           & 0.823213 & 0.716991 & 0.945172 & \cellcolor{lightgreen}0.005781 \\
 Diabetes duration=12--18 mo & 1939 & ckd           & 0.981917 & 0.897683 & 1.074056 & 0.690061 \\
 Diabetes duration=12--18 mo & 1939 & depression    & 1.025837 & 0.939003 & 1.120701 & 0.571883 \\
 Diabetes duration=12--18 mo & 1939 & hypertension  & 1.051459 & 0.916818 & 1.205874 & 0.472917 \\
@@ -496,7 +496,7 @@ Diabetes duration=18--24 mo & 265  & age\_at\_index & 1.001626 & 0.992012 & 1.01
 Diabetes duration=18--24 mo & 265  & male          & 0.902688 & 0.705002 & 1.155806 & 0.416908 \\
 Diabetes duration=18--24 mo & 265  & chd           & 0.762497 & 0.466350 & 1.246705 & 0.279722 \\
 Diabetes duration=18--24 mo & 265  & ckd           & 1.099068 & 0.839438 & 1.438998 & 0.492068 \\
-Diabetes duration=18--24 mo & 265  & depression    & 0.697405 & 0.544072 & 0.893950 & 0.004442 \\
+Diabetes duration=18--24 mo & 265  & depression    & 0.697405 & 0.544072 & 0.893950 & \cellcolor{lightgreen}0.004442 \\
 Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349011 & 0.820679 \\
 \hline
 \end{tabular}
@@ -517,22 +517,22 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
  & age\_at\_index & 1.001 & 0.999 & 1.004 & 0.306 \\
  & chd            & 0.943 & 0.847 & 1.050 & 0.284 \\
  & ckd            & 1.034 & 0.961 & 1.113 & 0.374 \\
- & depression     & 0.920 & 0.856 & 0.990 & 0.025 \\
+ & depression     & 0.920 & 0.856 & 0.990 & \cellcolor{lightgreen}0.025 \\
  & hypertension   & 0.970 & 0.861 & 1.092 & 0.615 \\
  & diabetes\_duration\_6--12 mo  & 0.963 & 0.872 & 1.064 & 0.462 \\
- & diabetes\_duration\_12--18 mo & 1.222 & 1.106 & 1.352 & 0.000 \\
- & diabetes\_duration\_18--24 mo & 2.912 & 2.450 & 3.462 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.222 & 1.106 & 1.352 & \cellcolor{lightgreen}0.000 \\
+ & diabetes\_duration\_18--24 mo & 2.912 & 2.450 & 3.462 & \cellcolor{lightgreen}0.000 \\
 \hline
 \multicolumn{6}{l}{\textbf{Gender = MALE (N = 1712)}} \\
 \hline
  & age\_at\_index & 1.000 & 0.997 & 1.004 & 0.931 \\
- & chd            & 0.851 & 0.742 & 0.977 & 0.022 \\
+ & chd            & 0.851 & 0.742 & 0.977 & \cellcolor{lightgreen}0.022 \\
  & ckd            & 0.981 & 0.892 & 1.078 & 0.686 \\
  & depression     & 1.034 & 0.941 & 1.136 & 0.486 \\
  & hypertension   & 1.038 & 0.892 & 1.208 & 0.629 \\
  & diabetes\_duration\_6--12 mo  & 1.002 & 0.879 & 1.142 & 0.978 \\
- & diabetes\_duration\_12--18 mo & 1.261 & 1.107 & 1.437 & 0.001 \\
- & diabetes\_duration\_18--24 mo & 2.803 & 2.207 & 3.561 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.261 & 1.107 & 1.437 & \cellcolor{lightgreen}0.001 \\
+ & diabetes\_duration\_18--24 mo & 2.803 & 2.207 & 3.561 & \cellcolor{lightgreen}0.000 \\
 \hline
 \end{tabular}
 \end{adjustbox}
@@ -555,8 +555,8 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
  & depression    & 0.990 & 0.833 & 1.176 & 0.907 \\
  & hypertension  & 0.898 & 0.639 & 1.263 & 0.537 \\
  & diabetes\_duration\_6--12 mo  & 0.954 & 0.786 & 1.157 & 0.631 \\
- & diabetes\_duration\_12--18 mo & 1.339 & 1.098 & 1.634 & 0.004 \\
- & diabetes\_duration\_18--24 mo & 3.111 & 1.873 & 5.167 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.339 & 1.098 & 1.634 & \cellcolor{lightgreen}0.004 \\
+ & diabetes\_duration\_18--24 mo & 3.111 & 1.873 & 5.167 & \cellcolor{lightgreen}0.000 \\
 
 \multicolumn{6}{l}{\textbf{CHD = 1 (N = 3922)}} \\
  & age\_at\_index & 1.001 & 0.999 & 1.004 & 0.257 \\
@@ -565,8 +565,8 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
  & depression    & 0.959 & 0.902 & 1.019 & 0.179 \\
  & hypertension  & 1.005 & 0.912 & 1.107 & 0.920 \\
  & diabetes\_duration\_6--12 mo  & 0.977 & 0.896 & 1.067 & 0.609 \\
- & diabetes\_duration\_12--18 mo & 1.216 & 1.114 & 1.327 & 0.000 \\
- & diabetes\_duration\_18--24 mo & 2.849 & 2.460 & 3.300 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.216 & 1.114 & 1.327 & \cellcolor{lightgreen}0.000 \\
+ & diabetes\_duration\_18--24 mo & 2.849 & 2.460 & 3.300 & \cellcolor{lightgreen}0.000 \\
 
 \hline
 \end{tabular}
@@ -590,8 +590,8 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
  & depression    & 0.990 & 0.833 & 1.176 & 0.907 \\
  & hypertension  & 0.898 & 0.639 & 1.263 & 0.537 \\
  & diabetes\_duration\_6--12 mo  & 0.954 & 0.786 & 1.157 & 0.631 \\
- & diabetes\_duration\_12--18 mo & 1.339 & 1.098 & 1.634 & 0.004 \\
- & diabetes\_duration\_18--24 mo & 3.111 & 1.873 & 5.167 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.339 & 1.098 & 1.634 & \cellcolor{lightgreen}0.004 \\
+ & diabetes\_duration\_18--24 mo & 3.111 & 1.873 & 5.167 & \cellcolor{lightgreen}0.000 \\
 
 \multicolumn{6}{l}{\textbf{CKD = 1 (N = 3922)}} \\
  & age\_at\_index & 1.001 & 0.999 & 1.004 & 0.257 \\
@@ -600,8 +600,8 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
  & depression    & 0.959 & 0.902 & 1.019 & 0.179 \\
  & hypertension  & 1.005 & 0.912 & 1.107 & 0.920 \\
  & diabetes\_duration\_6--12 mo  & 0.977 & 0.896 & 1.067 & 0.609 \\
- & diabetes\_duration\_12--18 mo & 1.216 & 1.114 & 1.327 & 0.000 \\
- & diabetes\_duration\_18--24 mo & 2.849 & 2.460 & 3.300 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.216 & 1.114 & 1.327 & \cellcolor{lightgreen}0.000 \\
+ & diabetes\_duration\_18--24 mo & 2.849 & 2.460 & 3.300 & \cellcolor{lightgreen}0.000 \\
 
 \hline
 \end{tabular}
@@ -621,12 +621,12 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
 \multicolumn{6}{l}{\textbf{Hypertension = 0 (N = 4084)}} \\
  & age\_at\_index & 1.001 & 0.999 & 1.003 & 0.460 \\
  & male          & 1.004 & 0.944 & 1.066 & 0.908 \\
- & chd           & 0.908 & 0.832 & 0.990 & 0.030 \\
+ & chd           & 0.908 & 0.832 & 0.990 & \cellcolor{lightgreen}0.030 \\
  & ckd           & 1.009 & 0.950 & 1.073 & 0.763 \\
  & depression    & 0.954 & 0.898 & 1.014 & 0.128 \\
  & diabetes\_duration\_6--12 mo  & 0.981 & 0.903 & 1.065 & 0.645 \\
- & diabetes\_duration\_12--18 mo & 1.226 & 1.128 & 1.332 & 0.000 \\
- & diabetes\_duration\_18--24 mo & 2.887 & 2.486 & 3.352 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.226 & 1.128 & 1.332 & \cellcolor{lightgreen}0.000 \\
+ & diabetes\_duration\_18--24 mo & 2.887 & 2.486 & 3.352 & \cellcolor{lightgreen}0.000 \\
 
 \multicolumn{6}{l}{\textbf{Hypertension = 1 (N = 448)}} \\
  & age\_at\_index & 1.001 & 0.995 & 1.008 & 0.695 \\
@@ -636,7 +636,7 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
  & depression    & 1.025 & 0.849 & 1.238 & 0.798 \\
  & diabetes\_duration\_6--12 mo  & 0.941 & 0.714 & 1.240 & 0.666 \\
  & diabetes\_duration\_12--18 mo & 1.309 & 0.996 & 1.720 & 0.053 \\
- & diabetes\_duration\_18--24 mo & 2.782 & 1.847 & 4.190 & 0.000 \\
+ & diabetes\_duration\_18--24 mo & 2.782 & 1.847 & 4.190 & \cellcolor{lightgreen}0.000 \\
 
 \hline
 \end{tabular}
@@ -656,12 +656,12 @@ Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349
 \multicolumn{6}{l}{\textbf{Ethnicity = Not Hispanic or Latino (N = 4532)}} \\
  & age\_at\_index & 1.001 & 0.999 & 1.003 & 0.420 \\
  & male          & 1.011 & 0.954 & 1.071 & 0.722 \\
- & chd           & 0.910 & 0.836 & 0.990 & 0.028 \\
+ & chd           & 0.910 & 0.836 & 0.990 & \cellcolor{lightgreen}0.028 \\
  & ckd           & 1.015 & 0.958 & 1.076 & 0.613 \\
  & depression    & 0.961 & 0.907 & 1.017 & 0.170 \\
  & diabetes\_duration\_6--12 mo  & 0.976 & 0.901 & 1.056 & 0.547 \\
- & diabetes\_duration\_12--18 mo & 1.233 & 1.139 & 1.335 & 0.000 \\
- & diabetes\_duration\_18--24 mo & 2.865 & 2.491 & 3.295 & 0.000 \\
+ & diabetes\_duration\_12--18 mo & 1.233 & 1.139 & 1.335 & \cellcolor{lightgreen}0.000 \\
+ & diabetes\_duration\_18--24 mo & 2.865 & 2.491 & 3.295 & \cellcolor{lightgreen}0.000 \\
 
 \hline
 \end{tabular}
