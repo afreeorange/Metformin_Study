@@ -123,7 +123,7 @@
 
 \textbf{Methods.} We constructed a cohort of 4,532 adult patients with T2DM who initiated metformin between January 15 and December 14, 2009 and subsequently received at least one second-line antidiabetic agent during the study window, using OMOP CDM-mapped data from the SynPUF 1\% synthetic Medicare dataset. Time to escalation was measured from the metformin index date to the first second-line drug exposure. Kaplan-Meier curves and a multivariable Cox proportional hazards model were used to assess associations between time to escalation and covariates including age, sex, race, comorbidities (coronary heart disease [CHD], chronic kidney disease [CKD], depression, hypertension), and diabetes duration at index.
 
-\textbf{Results.} The median time to escalation to second line therapy was 67 days (IQR: 30--127). The cohort was predominantly female (62.1\%), White (87.4\%), and elderly (median age 74, IQR 67--82). Sulfonylureas accounted for 79.6\% of first second-line agents, led by glyburide (39.0\%) and glipizide (30.9\%). In the multivariable Cox model, longer diabetes duration, that is defined as the time from first recorded T2DM diagnosis to metformin initiation, was the only characteristic associated with significantly faster escalation (HR 1.36 for 12--18 months vs. 0--6 months; HR 3.46 for 18--24 months vs. 0--6 months). CHD was modestly associated with slower escalation (HR 0.90, 95\% CI 0.82--0.98). No other demographic or comorbidity covariates were statistically significant. Effect modification tests were performed and showed a mild interaction between depression and diabetes duration $\geq 12$ months (LR p=0.040).
+\textbf{Results.} The median time to escalation to second line therapy was 67 days (IQR: 30--127, Figure \ref{fig:km-2nd-line}). The cohort was predominantly female (62.1\%), White (87.4\%), and elderly (median age 74, IQR 67--82). Sulfonylureas accounted for 79.6\% of first second-line agents, led by glyburide (39.0\%) and glipizide (30.9\%). In the multivariable Cox model, longer diabetes duration, that is defined as the time from first recorded T2DM diagnosis to metformin initiation, was the only characteristic associated with significantly faster escalation (HR 1.36 for 12--18 months vs. 0--6 months; HR 3.46 for 18--24 months vs. 0--6 months). CHD was modestly associated with slower escalation (HR 0.90, 95\% CI 0.82--0.98). No other demographic or comorbidity covariates were statistically significant. Effect modification tests were performed and showed a mild interaction between depression and diabetes duration $\geq 12$ months (LR p=0.040).
 
 \textbf{Conclusions.} In this retrospective observational cohort study derived from synthetic Medicare data, diabetes duration at metformin initiation was the dominant driver of time to second-line therapy. The absence of meaningful associations for most covariates likely reflects the synthetic nature of the underlying data, design restrictions, and unmeasured confounding by disease severity. These findings provide a methodological template for future analyses in richer, real-world datasets.
 
@@ -254,7 +254,7 @@ Overall, the median time from metformin initiation to escalation of second-line 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth]{../Analysis/figures/time-to-escalation-demographics.png}
+  \includegraphics[width=0.80\textwidth]{../Analysis/figures/time-to-escalation-demographics.png}
   \caption{\small Time to Escalation by Demographics}
   \label{fig:km1}
 \end{figure}
@@ -274,6 +274,13 @@ Overall, the median time from metformin initiation to escalation of second-line 
 \end{figure}
 
 Stratified Kaplan Meier curves were estimated across all eight covariates but did not reveal statistical significant differences in escalation timing. For diabetes duration (time from first recorded T2DM diagnosis to metformin initiation), patients with 18-24 months of prior diabetes duration escalated substantially faster than those with 0-6 months.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Analysis/figures/km-2nd-line.png}
+  \caption{\small Kaplan-Meier Curve of 2nd Line Therapy Initiation}
+  \label{fig:km-2nd-line}
+\end{figure}
 
 \begin{figure}[H]
   \centering
