@@ -139,7 +139,7 @@ Although metformin is the first line therapy for diabetes management, T2DM is a 
 
 Existing evidence on treatment escalation patterns comes largely from randomized trials and from claims-based pharmacoepidemiologic studies such as Leonard et al. (2018), which examined hypoglycemia risk across oral antidiabetic monotherapies in a Medicaid population. These studies have advanced our understanding of comparative drug safety, but they leave open an important question: what distinguishes patients who escalate to a second-line agent quickly from those who remain on metformin alone for longer? Answering this question requires longitudinal electronic health record (EHR) data linked to clinical and demographic context. This is precisely the kind of data standardized under the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM).
 
-Our study uses OMOP-mapped EHR data from New York-Presbyterian (NYP) to describe the timing of second-line antidiabetic therapy initiation among adults with T2DM who began metformin during the 2009 calendar year. We focus on a single, well-defined study window (January 15, 2009 through December 14, 2009) and restrict the cohort to patients who were escalated within this period. By collapsing each patient's drug exposure history to the first qualifying second-line event, we are able to measure time to escalation as a continuous outcome and examine its association with baseline demographic and clinical characteristics including age, sex, ethnicity, race, hypertension, depression, diabetes duration, coronary heart disease (CHD), and chronic kidney disease (CKD). A secondary aim is to describe the sequences of therapy that follow metformin, characterizing the most common treatment pathways and the drugs that patients most often receive.
+Our study uses SynPUF to describe the timing of second-line antidiabetic therapy initiation among adults with T2DM who began metformin during the 2009 calendar year. We focus on a single, well-defined study window (January 15, 2009 through December 14, 2009) and restrict the cohort to patients who were escalated within this period. By collapsing each patient's drug exposure history to the first qualifying second-line event, we are able to measure time to escalation as a continuous outcome and examine its association with baseline demographic and clinical characteristics including age, sex, ethnicity, race, hypertension, depression, diabetes duration, coronary heart disease (CHD), and chronic kidney disease (CKD). A secondary aim is to describe the sequences of therapy that follow metformin, characterizing the most common treatment pathways and the drugs that patients most often receive.
 
 % =============================================================
 
@@ -236,9 +236,81 @@ Overall, the median time from metformin initiation to escalation of second-line 
 
 Stratified Kaplan Meier curves were estimated across all eight covariates but did not reveal statistical significant differences in escalation timing. For diabetes duration (time from first recorded T2DM diagnosis to metformin initiation), patients with 18-24 months of prior diabetes duration escalated substantially faster than those with 0-6 months [Figure X: Boxplot of time to escalation by diabetes duration]
 
+\subsection*{Drug class and Treatment Pathways}
+
+Sulfonylureas was the dominant second-line drug class, representing 79.8\% of first-line escalations. Within this class, glyburide was most common (39.0\%), followed by glipizide (30.9\%) and glimepiride (9.7\%). DPP-4 inhibitors (sitagliptin, saxagliptin) comprised only 1.7\% of escalations, and insulin was used in fewer than 0.5\% of patients. This distribution reflects the real world clinical practice of 2009, when sulfonylureas still dominated antidiabetic treatment\cite{turner2014ambulatory,kitten2019prescribing}. [Figure: Distribution of drug classes]
+
+\subsection*{Cox Proportional Hazard Models}
+
+Longer diabetes duration at metformin initiation was the dominant predictor of faster escalation. Compared with patients who had 0–6 months of prior diabetes duration, those with 12–18 months were escalated significantly faster (HR 1.37, 95\% CI 1.24–1.51), and those with 18–24 months were escalated even faster (HR 3.52, 95\% CI 3.02–4.10). The hazard ratio for the 6–12 month duration group was not statistically significant (HR 1.06, 95\% CI 0.97–1.17, p=0.21). CHD was modestly associated with a lower hazard of escalation (HR 0.89, 95\% CI 0.81–0.97, p=0.01), implying that patients with CHD may have escalated more slowly on average. No other covariate achieved statistical significance, including age, sex, race, CKD, depression, and hypertension.[Figure X: Forest plot of hazard ratios from multivariable Cox model]
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{lcccc}
+    \hline
+    \textbf{Covariate}                          & \textbf{HR} & \textbf{95\% CI Lower} & \textbf{95\% CI Upper} & \textbf{p-value} \\
+    \hline
+    Age at index (per year)                     & 1.00        & 1.00                   & 1.00                   & 0.35             \\
+    CHD (vs.\ no CHD)                           & 0.89        & 0.81                   & 0.97                   & 0.01*            \\
+    CKD (vs.\ no CKD)                           & 1.01        & 0.95                   & 1.07                   & 0.74             \\
+    Depression (vs.\ none)                      & 0.95        & 0.90                   & 1.01                   & 0.13             \\
+    Hypertension (vs.\ none)                    & 0.99        & 0.90                   & 1.09                   & 0.84             \\
+    Male (vs.\ female)                          & 1.01        & 0.95                   & 1.08                   & 0.67             \\
+    Black or African American (vs.\ White)      & 1.03        & 0.94                   & 1.13                   & 0.49             \\
+    Diabetes duration: 6--12 mo (vs.\ 0--6 mo)  & 1.06        & 0.97                   & 1.17                   & 0.21             \\
+    Diabetes duration: 12--18 mo (vs.\ 0--6 mo) & 1.37        & 1.24                   & 1.51                   & $<0.005^{*}$     \\
+    Diabetes duration: 18--24 mo (vs.\ 0--6 mo) & 3.52        & 3.02                   & 4.10                   & $<0.005^{*}$     \\
+    \hline
+  \end{tabular}
+  \caption{Cox Proportional Hazards Model Results --- Time to Second-Line Therapy Initiation (N = 4{,}679)}
+  \label{tab:cox_results}
+\end{table}
+
+\subsection*{Cox Proportional Hazard Models stratified}
+
+Stratified Cox models run within strata of sex, age group, CHD, depression, hypertension, and CKD consistently replicated the pattern from the overall model: diabetes duration remained the most prominent significant predictor within nearly every stratum, while other covariates showed wide confidence intervals and non-significant point estimates. There were some notable exceptions. Depression was associated with slower escalation among females (HR 0.92, 95\% CI 0.86–0.99, p=0.025) but not among males (HR 1.03, 95\% CI 0.94–1.14, p=0.486). CHD was associated with slower escalation among males (HR 0.85, 95\% CI 0.74–0.98, p=0.022) and in the 65–74 age group (HR 0.85, 95\% CI 0.73–0.97, p=0.020), but not elsewhere.
+
+The diabetes duration effect was consistent across all stratifying variables. In the 18–44 age group, the hazard ratio for 18–24 months of prior duration was 3.60 (95\% CI 1.69–7.66), in the 45–64 group it was 2.87 (95\% CI 2.00–4.11), and in patients aged 75 and older it was similarly large (HR 2.87, 95\% CI 2.34–3.51). The effect held in both CHD-positive (HR 2.85, 95\% CI 2.46 -- 3.30) and CHD-negative strata (HR 3.11, 95\% CI 1.87–5.17). This consistency supports our finding on the association between disease duration and second-line escalation. [Figure X: Forest plot of diabetes duration HRs across age and comorbidity  strata]
+
+\subsection*{Effect modification}
+
+Likelihood ratio tests for 12 pre-specified interaction terms yielded no statistically significant interactions (all LR p $> 0.23$). Similarly, tests for whether diabetes duration modified the effect of each of the four comorbidities, sex, and age were uniformly non-significant, with one exception: the interaction between depression and diabetes duration $\geq 12$ months was mildly significant (LR p = 0.036, interaction HR 1.11, 95\% CI 1.01--1.22). Given the number of tests conducted, this result should not be treated as conclusive.
+
+
 % =============================================================
 
 \section*{Discussion}
+
+This descriptive retrospective cohort study examined time to second-line antidiabetic therapy initiation in 4,679 adult patients with T2DM who escalated beyond metformin monotherapy during a 334-day window in 2009. Our principal finding was that diabetes duration at the time of metformin initiation was strongly and consistently associated with faster escalation: patients with 18-24 months of established T2DM prior to starting metformin were escalated more than three times faster than those newly diagnosed. Across nearly all stratified and interaction analyses, this was the only covariate with repeated effects. Most other demographic and comorbidity factors (including age, sex, race, CHD, CKD, and hypertension) were not statistically associated with the rate of escalation.
+
+The association between prior diabetes duration and faster escalation is clinically plausible. Biologically, longer disease duration means more beta-cell deterioration at baseline, this leaves less residual capacity for monotherapy\cite{ukpds1995overview}. This means that patients with an established disease history are therefore more likely to experience inadequate glycemic control on a single drug, independent of any prescriber decision. Treatment history could be another explanation: patients with longer prior duration may have already documented failure of other non-pharmacological approaches before metformin was initiated. This documented prior failure could be the reason for earlier escalation once metformin is started, since by the time metformin is initiated, lifestyle modifications have already been found to be insufficient.
+
+Literature supplies evidence that sex, race, and some comorbidities are predictors of treatment escalation timing or intensity, with Black and South Asian patients shown to intensify to second- and third-line therapy more slowly than White patients\cite{mathur2020ethnic_disparities}, and female sex associated with higher risks of treatment modification after initiating second-line antidiabetic therapy\cite{liss2023treatment_modification}. The surprising lack of results in this context may reflect several shortcomings of the study, specifically the use of synthetic data in which patient level covariate-outcome relationships might be attenuated. The fact that we restricted the cohort to escalated patients only could be another factor: the probability of escalation itself could have been a more informative outcome.
+
+\subsection*{Limitations}
+
+LIMITATIONS
+
+\textbf{Selection bias}. This dataset includes only patients who were escalated to a second-line agent. Patients who remained on metformin monotherapy throughout the observation period are excluded. All survival analyses therefore describe the distribution of escalation timing among those who escalated, not the overall probability of escalation.
+
+\textbf{SYNPUF 1 \% dataset}.  As mentioned previously, since SynPUF is a synthetic dataset, it has been statistically perturbed to protect patient privacy and prevent reidentification. Individual-level covariate-outcome associations may therefore be attenuated, inflated, or otherwise distorted. Synthetic data caveat. It is also intended for methods development and not clinical inference. The study population was additionally homogeneous (entirely non-Hispanic, predominantly White and elderly), which reduces the statistical power to detect associations that may be more apparent in more diverse populations.
+
+\textbf{Unmeasured confounders}. There are some other key confounders that we could not take into account in our study. These are HbA1c, BMI, renal function (eGFR), medication adherence and disease severity, all of which have been identified as baseline risk factors associated with the timing of treatment intensification in patients with type 2 diabetes. Disease Severity is the most important unmeasured confounder as patients with higher baseline glucose or greater disease burden would be expected to escalate faster and to have more comorbidities..
+
+\textbf{Outcome definition}. The distinction between adding or switching a second line drug was not explicitly modeled. We captured and defined both as a second line initiation. Future work should differentiate between intensification (adding a second agent while continuing metformin) and substitution (replacing metformin), as these likely reflect different clinical decision processes.
+
+\textbf{Observation intensity bias}. Patients with more healthcare encounters have more opportunities for escalation to be documented. Healthcare utilization was not available as a covariate in this study.
+
+\textbf{Unmeasured prescriber behavior}. Treatment escalation decisions reflect not only patient characteristics but also the preferences and practice styles of individual clinicians. Two patients with identical clinical profiles might be escalated very differently depending on their physician. We have no information about provider identity, specialty, or prescribing patterns, so this entire dimension of variability is missing from our analysis.
+
+\textbf{Temporal context}. Our study window covers a single calendar year, 2009. The diabetes treatment landscape has changed substantially since then, particularly with the rise of SGLT2 inhibitors and GLP-1 receptor agonists, both of which were essentially absent from clinical practice in our study period. The treatment patterns we describe, especially the dominance of older agents like sulfonylureas and thiazolidinediones, reflect prescribing norms specific to that era and are not directly generalizable to contemporary diabetes care.
+
+\section*{Conclusions}
+
+This study used OMOP-mapped synthetic claims data to characterize the demographic and clinical correlates of second-line antidiabetic therapy initiation. Although our analyses did not yield statistically significant associations of interest, our work led us to (1) appreciate the methodological tractability afforded by standardized data models such as the OMOP CDM (2) the value of understanding, as feasibly as possible, the processes that generate the clinical signal underlying medical decision-making. Meaningful inference from observational data depends not only on the analytic methods applied but also on the fidelity with which those data capture underlying patient and provider behaviors.
+
+Future work in richer, real-world datasets could address many of the limitations discussed. A new-user, active-comparator design comparing patients who escalated quickly versus slowly, with propensity-score adjustment for disease severity, could give us more insights on the causal links between the covariates and the outcome. Additionally, sequence-aware modeling (for example hidden Markov models or multi-state survival models) could capture the complexity of the treatment signal that static time-to-event approaches cannot.
+
 
 % =============================================================
 
