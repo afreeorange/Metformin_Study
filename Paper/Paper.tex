@@ -380,23 +380,23 @@ The diabetes duration effect was consistent across all stratifying variables. In
 Likelihood ratio tests for 12 pre-specified interaction terms yielded no statistically significant interactions (all LR p $> 0.23$). Similarly, tests for whether diabetes duration modified the effect of each of the four comorbidities, sex, and age were uniformly non-significant, with one exception: the interaction between depression and diabetes duration $\geq 12$ months was mildly significant (LR p = 0.036, interaction HR 1.11, 95\% CI 1.01--1.22, Table \ref{tab:effect_mod}). Given the number of tests conducted, this result should not be treated as conclusive.
 
 \begin{table}[h]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lcccccccc}
-\hline
-\textbf{Test} & \textbf{N} & \textbf{Interaction HR} & \textbf{CI low} & \textbf{CI high} & \textbf{Wald p} & \textbf{LR statistic} & \textbf{LR p} & \textbf{Modifier?} \\
-\hline
-chd $\times$ DM$\geq$12mo          & 4532 & 1.053 & 0.943 & 1.175 & 0.360 & 0.837 & 0.360 & No \\
-ckd $\times$ DM$\geq$12mo          & 4532 & 1.040 & 0.946 & 1.144 & 0.415 & 0.664 & 0.415 & No \\
-depression $\times$ DM$\geq$12mo   & 4532 & 1.107 & 1.007 & 1.218 & 0.036 & 4.385 & 0.036 & \cellcolor{lightgreen}Yes \\
-hypertension $\times$ DM$\geq$12mo & 4532 & 1.134 & 0.958 & 1.342 & 0.143 & 2.139 & 0.144 & No \\
-sex $\times$ DM$\geq$12mo          & 4532 & 1.018 & 0.920 & 1.127 & 0.726 & 0.123 & 0.726 & No \\
-age$\geq$65 $\times$ DM$\geq$12mo  & 4532 & 1.100 & 0.993 & 1.218 & 0.069 & 3.320 & 0.068 & No \\
-\hline
-\end{tabular}
-\end{adjustbox}
-\caption{Effect modification by diabetes duration ($\geq$12 months).}
-\label{tab:effect_mod}
+  \centering
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{lcccccccc}
+      \hline
+      \textbf{Test}                      & \textbf{N} & \textbf{Interaction HR} & \textbf{CI low} & \textbf{CI high} & \textbf{Wald p} & \textbf{LR statistic} & \textbf{LR p} & \textbf{Modifier?}        \\
+      \hline
+      chd $\times$ DM$\geq$12mo          & 4532       & 1.053                   & 0.943           & 1.175            & 0.360           & 0.837                 & 0.360         & No                        \\
+      ckd $\times$ DM$\geq$12mo          & 4532       & 1.040                   & 0.946           & 1.144            & 0.415           & 0.664                 & 0.415         & No                        \\
+      depression $\times$ DM$\geq$12mo   & 4532       & 1.107                   & 1.007           & 1.218            & 0.036           & 4.385                 & 0.036         & \cellcolor{lightgreen}Yes \\
+      hypertension $\times$ DM$\geq$12mo & 4532       & 1.134                   & 0.958           & 1.342            & 0.143           & 2.139                 & 0.144         & No                        \\
+      sex $\times$ DM$\geq$12mo          & 4532       & 1.018                   & 0.920           & 1.127            & 0.726           & 0.123                 & 0.726         & No                        \\
+      age$\geq$65 $\times$ DM$\geq$12mo  & 4532       & 1.100                   & 0.993           & 1.218            & 0.069           & 3.320                 & 0.068         & No                        \\
+      \hline
+    \end{tabular}
+  \end{adjustbox}
+  \caption{Effect modification by diabetes duration ($\geq$12 months).}
+  \label{tab:effect_mod}
 \end{table}
 
 % =============================================================
@@ -474,209 +474,209 @@ Future work in richer, real-world datasets could address many of the limitations
 \subsubsection*{Cox Tables Stratified by Covariate}
 
 \begin{table}[H]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{llccccc}
-\hline
-\textbf{Stratum} & \textbf{N} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p} \\
-\hline
-Diabetes duration=0--6 mo   & 528  & age\_at\_index & 1.000803 & 0.995011 & 1.006628 & 0.786343 \\
-Diabetes duration=0--6 mo   & 528  & male          & 0.988974 & 0.834369 & 1.172227 & 0.898280 \\
-Diabetes duration=0--6 mo   & 528  & chd           & 0.931370 & 0.762781 & 1.137220 & 0.485267 \\
-Diabetes duration=0--6 mo   & 528  & ckd           & 0.937635 & 0.786152 & 1.118308 & 0.473840 \\
-Diabetes duration=0--6 mo   & 528  & depression    & 0.910230 & 0.766792 & 1.080501 & 0.282358 \\
-Diabetes duration=0--6 mo   & 528  & hypertension  & 0.930931 & 0.666328 & 1.300608 & 0.674864 \\
-\hline
-Diabetes duration=6--12 mo  & 1800 & age\_at\_index & 0.998898 & 0.995586 & 1.002221 & 0.515135 \\
-Diabetes duration=6--12 mo  & 1800 & male          & 1.015769 & 0.925971 & 1.114276 & 0.740414 \\
-Diabetes duration=6--12 mo  & 1800 & chd           & 0.961764 & 0.841862 & 1.098742 & 0.566055 \\
-Diabetes duration=6--12 mo  & 1800 & ckd           & 1.050222 & 0.959120 & 1.149977 & 0.289862 \\
-Diabetes duration=6--12 mo  & 1800 & depression    & 0.935283 & 0.854268 & 1.023981 & 0.147805 \\
-Diabetes duration=6--12 mo  & 1800 & hypertension  & 0.937093 & 0.804981 & 1.090888 & 0.402039 \\
-\hline
-Diabetes duration=12--18 mo & 1939 & age\_at\_index & 1.002979 & 0.999746 & 1.006222 & 0.070917 \\
-Diabetes duration=12--18 mo & 1939 & male          & 1.021166 & 0.935675 & 1.114467 & 0.638699 \\
-Diabetes duration=12--18 mo & 1939 & chd           & 0.823213 & 0.716991 & 0.945172 & \cellcolor{lightgreen}0.005781 \\
-Diabetes duration=12--18 mo & 1939 & ckd           & 0.981917 & 0.897683 & 1.074056 & 0.690061 \\
-Diabetes duration=12--18 mo & 1939 & depression    & 1.025837 & 0.939003 & 1.120701 & 0.571883 \\
-Diabetes duration=12--18 mo & 1939 & hypertension  & 1.051459 & 0.916818 & 1.205874 & 0.472917 \\
-\hline
-Diabetes duration=18--24 mo & 265  & age\_at\_index & 1.001626 & 0.992012 & 1.011334 & 0.741257 \\
-Diabetes duration=18--24 mo & 265  & male          & 0.902688 & 0.705002 & 1.155806 & 0.416908 \\
-Diabetes duration=18--24 mo & 265  & chd           & 0.762497 & 0.466350 & 1.246705 & 0.279722 \\
-Diabetes duration=18--24 mo & 265  & ckd           & 1.099068 & 0.839438 & 1.438998 & 0.492068 \\
-Diabetes duration=18--24 mo & 265  & depression    & 0.697405 & 0.544072 & 0.893950 & \cellcolor{lightgreen}0.004442 \\
-Diabetes duration=18--24 mo & 265  & hypertension  & 0.961606 & 0.685455 & 1.349011 & 0.820679 \\
-\hline
-\end{tabular}
-\end{adjustbox}
-\caption{Stratified Cox proportional hazards models by diabetes duration.}
-\label{tab:stratified_cox}
+  \centering
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{llccccc}
+      \hline
+      \textbf{Stratum}            & \textbf{N} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p}                     \\
+      \hline
+      Diabetes duration=0--6 mo   & 528        & age\_at\_index     & 1.000803    & 0.995011        & 1.006628         & 0.786343                       \\
+      Diabetes duration=0--6 mo   & 528        & male               & 0.988974    & 0.834369        & 1.172227         & 0.898280                       \\
+      Diabetes duration=0--6 mo   & 528        & chd                & 0.931370    & 0.762781        & 1.137220         & 0.485267                       \\
+      Diabetes duration=0--6 mo   & 528        & ckd                & 0.937635    & 0.786152        & 1.118308         & 0.473840                       \\
+      Diabetes duration=0--6 mo   & 528        & depression         & 0.910230    & 0.766792        & 1.080501         & 0.282358                       \\
+      Diabetes duration=0--6 mo   & 528        & hypertension       & 0.930931    & 0.666328        & 1.300608         & 0.674864                       \\
+      \hline
+      Diabetes duration=6--12 mo  & 1800       & age\_at\_index     & 0.998898    & 0.995586        & 1.002221         & 0.515135                       \\
+      Diabetes duration=6--12 mo  & 1800       & male               & 1.015769    & 0.925971        & 1.114276         & 0.740414                       \\
+      Diabetes duration=6--12 mo  & 1800       & chd                & 0.961764    & 0.841862        & 1.098742         & 0.566055                       \\
+      Diabetes duration=6--12 mo  & 1800       & ckd                & 1.050222    & 0.959120        & 1.149977         & 0.289862                       \\
+      Diabetes duration=6--12 mo  & 1800       & depression         & 0.935283    & 0.854268        & 1.023981         & 0.147805                       \\
+      Diabetes duration=6--12 mo  & 1800       & hypertension       & 0.937093    & 0.804981        & 1.090888         & 0.402039                       \\
+      \hline
+      Diabetes duration=12--18 mo & 1939       & age\_at\_index     & 1.002979    & 0.999746        & 1.006222         & 0.070917                       \\
+      Diabetes duration=12--18 mo & 1939       & male               & 1.021166    & 0.935675        & 1.114467         & 0.638699                       \\
+      Diabetes duration=12--18 mo & 1939       & chd                & 0.823213    & 0.716991        & 0.945172         & \cellcolor{lightgreen}0.005781 \\
+      Diabetes duration=12--18 mo & 1939       & ckd                & 0.981917    & 0.897683        & 1.074056         & 0.690061                       \\
+      Diabetes duration=12--18 mo & 1939       & depression         & 1.025837    & 0.939003        & 1.120701         & 0.571883                       \\
+      Diabetes duration=12--18 mo & 1939       & hypertension       & 1.051459    & 0.916818        & 1.205874         & 0.472917                       \\
+      \hline
+      Diabetes duration=18--24 mo & 265        & age\_at\_index     & 1.001626    & 0.992012        & 1.011334         & 0.741257                       \\
+      Diabetes duration=18--24 mo & 265        & male               & 0.902688    & 0.705002        & 1.155806         & 0.416908                       \\
+      Diabetes duration=18--24 mo & 265        & chd                & 0.762497    & 0.466350        & 1.246705         & 0.279722                       \\
+      Diabetes duration=18--24 mo & 265        & ckd                & 1.099068    & 0.839438        & 1.438998         & 0.492068                       \\
+      Diabetes duration=18--24 mo & 265        & depression         & 0.697405    & 0.544072        & 0.893950         & \cellcolor{lightgreen}0.004442 \\
+      Diabetes duration=18--24 mo & 265        & hypertension       & 0.961606    & 0.685455        & 1.349011         & 0.820679                       \\
+      \hline
+    \end{tabular}
+  \end{adjustbox}
+  \caption{Stratified Cox proportional hazards models by diabetes duration.}
+  \label{tab:stratified_cox}
 \end{table}
 
 \begin{table}[H]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{llcccc}
-\hline
-\textbf{Stratum} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p} \\
-\hline
-\multicolumn{6}{l}{\textbf{Gender = FEMALE (N = 2820)}} \\
-\hline
- & age\_at\_index & 1.001 & 0.999 & 1.004 & 0.306 \\
- & chd            & 0.943 & 0.847 & 1.050 & 0.284 \\
- & ckd            & 1.034 & 0.961 & 1.113 & 0.374 \\
- & depression     & 0.920 & 0.856 & 0.990 & \cellcolor{lightgreen}0.025 \\
- & hypertension   & 0.970 & 0.861 & 1.092 & 0.615 \\
- & diabetes\_duration\_6--12 mo  & 0.963 & 0.872 & 1.064 & 0.462 \\
- & diabetes\_duration\_12--18 mo & 1.222 & 1.106 & 1.352 & \cellcolor{lightgreen}0.000 \\
- & diabetes\_duration\_18--24 mo & 2.912 & 2.450 & 3.462 & \cellcolor{lightgreen}0.000 \\
-\hline
-\multicolumn{6}{l}{\textbf{Gender = MALE (N = 1712)}} \\
-\hline
- & age\_at\_index & 1.000 & 0.997 & 1.004 & 0.931 \\
- & chd            & 0.851 & 0.742 & 0.977 & \cellcolor{lightgreen}0.022 \\
- & ckd            & 0.981 & 0.892 & 1.078 & 0.686 \\
- & depression     & 1.034 & 0.941 & 1.136 & 0.486 \\
- & hypertension   & 1.038 & 0.892 & 1.208 & 0.629 \\
- & diabetes\_duration\_6--12 mo  & 1.002 & 0.879 & 1.142 & 0.978 \\
- & diabetes\_duration\_12--18 mo & 1.261 & 1.107 & 1.437 & \cellcolor{lightgreen}0.001 \\
- & diabetes\_duration\_18--24 mo & 2.803 & 2.207 & 3.561 & \cellcolor{lightgreen}0.000 \\
-\hline
-\end{tabular}
-\end{adjustbox}
-\caption{Stratified Cox proportional hazards models by gender.}
-\label{tab:gender_stratified}
+  \centering
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{llcccc}
+      \hline
+      \textbf{Stratum} & \textbf{Covariate}            & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p}                  \\
+      \hline
+      \multicolumn{6}{l}{\textbf{Gender = FEMALE (N = 2820)}}                                                                           \\
+      \hline
+                       & age\_at\_index                & 1.001       & 0.999           & 1.004            & 0.306                       \\
+                       & chd                           & 0.943       & 0.847           & 1.050            & 0.284                       \\
+                       & ckd                           & 1.034       & 0.961           & 1.113            & 0.374                       \\
+                       & depression                    & 0.920       & 0.856           & 0.990            & \cellcolor{lightgreen}0.025 \\
+                       & hypertension                  & 0.970       & 0.861           & 1.092            & 0.615                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.963       & 0.872           & 1.064            & 0.462                       \\
+                       & diabetes\_duration\_12--18 mo & 1.222       & 1.106           & 1.352            & \cellcolor{lightgreen}0.000 \\
+                       & diabetes\_duration\_18--24 mo & 2.912       & 2.450           & 3.462            & \cellcolor{lightgreen}0.000 \\
+      \hline
+      \multicolumn{6}{l}{\textbf{Gender = MALE (N = 1712)}}                                                                             \\
+      \hline
+                       & age\_at\_index                & 1.000       & 0.997           & 1.004            & 0.931                       \\
+                       & chd                           & 0.851       & 0.742           & 0.977            & \cellcolor{lightgreen}0.022 \\
+                       & ckd                           & 0.981       & 0.892           & 1.078            & 0.686                       \\
+                       & depression                    & 1.034       & 0.941           & 1.136            & 0.486                       \\
+                       & hypertension                  & 1.038       & 0.892           & 1.208            & 0.629                       \\
+                       & diabetes\_duration\_6--12 mo  & 1.002       & 0.879           & 1.142            & 0.978                       \\
+                       & diabetes\_duration\_12--18 mo & 1.261       & 1.107           & 1.437            & \cellcolor{lightgreen}0.001 \\
+                       & diabetes\_duration\_18--24 mo & 2.803       & 2.207           & 3.561            & \cellcolor{lightgreen}0.000 \\
+      \hline
+    \end{tabular}
+  \end{adjustbox}
+  \caption{Stratified Cox proportional hazards models by gender.}
+  \label{tab:gender_stratified}
 \end{table}
 
 \begin{table}[H]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{llcccc}
-\hline
-\textbf{Stratum} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p} \\
-\hline
+  \centering
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{llcccc}
+      \hline
+      \textbf{Stratum} & \textbf{Covariate}            & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p}                  \\
+      \hline
 
-\multicolumn{6}{l}{\textbf{CHD = 0 (N = 610)}} \\
- & age\_at\_index & 0.999 & 0.993 & 1.004 & 0.610 \\
- & male          & 1.073 & 0.916 & 1.258 & 0.382 \\
- & ckd           & 1.013 & 0.855 & 1.201 & 0.878 \\
- & depression    & 0.990 & 0.833 & 1.176 & 0.907 \\
- & hypertension  & 0.898 & 0.639 & 1.263 & 0.537 \\
- & diabetes\_duration\_6--12 mo  & 0.954 & 0.786 & 1.157 & 0.631 \\
- & diabetes\_duration\_12--18 mo & 1.339 & 1.098 & 1.634 & \cellcolor{lightgreen}0.004 \\
- & diabetes\_duration\_18--24 mo & 3.111 & 1.873 & 5.167 & \cellcolor{lightgreen}0.000 \\
+      \multicolumn{6}{l}{\textbf{CHD = 0 (N = 610)}}                                                                                    \\
+                       & age\_at\_index                & 0.999       & 0.993           & 1.004            & 0.610                       \\
+                       & male                          & 1.073       & 0.916           & 1.258            & 0.382                       \\
+                       & ckd                           & 1.013       & 0.855           & 1.201            & 0.878                       \\
+                       & depression                    & 0.990       & 0.833           & 1.176            & 0.907                       \\
+                       & hypertension                  & 0.898       & 0.639           & 1.263            & 0.537                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.954       & 0.786           & 1.157            & 0.631                       \\
+                       & diabetes\_duration\_12--18 mo & 1.339       & 1.098           & 1.634            & \cellcolor{lightgreen}0.004 \\
+                       & diabetes\_duration\_18--24 mo & 3.111       & 1.873           & 5.167            & \cellcolor{lightgreen}0.000 \\
 
-\multicolumn{6}{l}{\textbf{CHD = 1 (N = 3922)}} \\
- & age\_at\_index & 1.001 & 0.999 & 1.004 & 0.257 \\
- & male          & 1.002 & 0.942 & 1.066 & 0.951 \\
- & ckd           & 1.016 & 0.954 & 1.081 & 0.626 \\
- & depression    & 0.959 & 0.902 & 1.019 & 0.179 \\
- & hypertension  & 1.005 & 0.912 & 1.107 & 0.920 \\
- & diabetes\_duration\_6--12 mo  & 0.977 & 0.896 & 1.067 & 0.609 \\
- & diabetes\_duration\_12--18 mo & 1.216 & 1.114 & 1.327 & \cellcolor{lightgreen}0.000 \\
- & diabetes\_duration\_18--24 mo & 2.849 & 2.460 & 3.300 & \cellcolor{lightgreen}0.000 \\
+      \multicolumn{6}{l}{\textbf{CHD = 1 (N = 3922)}}                                                                                   \\
+                       & age\_at\_index                & 1.001       & 0.999           & 1.004            & 0.257                       \\
+                       & male                          & 1.002       & 0.942           & 1.066            & 0.951                       \\
+                       & ckd                           & 1.016       & 0.954           & 1.081            & 0.626                       \\
+                       & depression                    & 0.959       & 0.902           & 1.019            & 0.179                       \\
+                       & hypertension                  & 1.005       & 0.912           & 1.107            & 0.920                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.977       & 0.896           & 1.067            & 0.609                       \\
+                       & diabetes\_duration\_12--18 mo & 1.216       & 1.114           & 1.327            & \cellcolor{lightgreen}0.000 \\
+                       & diabetes\_duration\_18--24 mo & 2.849       & 2.460           & 3.300            & \cellcolor{lightgreen}0.000 \\
 
-\hline
-\end{tabular}
-\end{adjustbox}
-\caption{Stratified Cox proportional hazards models by CHD status.}
-\label{tab:chd_stratified}
+      \hline
+    \end{tabular}
+  \end{adjustbox}
+  \caption{Stratified Cox proportional hazards models by CHD status.}
+  \label{tab:chd_stratified}
 \end{table}
 
 \begin{table}[H]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{llcccc}
-\hline
-\textbf{Stratum} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p} \\
-\hline
+  \centering
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{llcccc}
+      \hline
+      \textbf{Stratum} & \textbf{Covariate}            & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p}                  \\
+      \hline
 
-\multicolumn{6}{l}{\textbf{CKD = 0 (N = 610)}} \\
- & age\_at\_index & 0.999 & 0.993 & 1.004 & 0.610 \\
- & male          & 1.073 & 0.916 & 1.258 & 0.382 \\
- & ckd           & 1.013 & 0.855 & 1.201 & 0.878 \\
- & depression    & 0.990 & 0.833 & 1.176 & 0.907 \\
- & hypertension  & 0.898 & 0.639 & 1.263 & 0.537 \\
- & diabetes\_duration\_6--12 mo  & 0.954 & 0.786 & 1.157 & 0.631 \\
- & diabetes\_duration\_12--18 mo & 1.339 & 1.098 & 1.634 & \cellcolor{lightgreen}0.004 \\
- & diabetes\_duration\_18--24 mo & 3.111 & 1.873 & 5.167 & \cellcolor{lightgreen}0.000 \\
+      \multicolumn{6}{l}{\textbf{CKD = 0 (N = 610)}}                                                                                    \\
+                       & age\_at\_index                & 0.999       & 0.993           & 1.004            & 0.610                       \\
+                       & male                          & 1.073       & 0.916           & 1.258            & 0.382                       \\
+                       & ckd                           & 1.013       & 0.855           & 1.201            & 0.878                       \\
+                       & depression                    & 0.990       & 0.833           & 1.176            & 0.907                       \\
+                       & hypertension                  & 0.898       & 0.639           & 1.263            & 0.537                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.954       & 0.786           & 1.157            & 0.631                       \\
+                       & diabetes\_duration\_12--18 mo & 1.339       & 1.098           & 1.634            & \cellcolor{lightgreen}0.004 \\
+                       & diabetes\_duration\_18--24 mo & 3.111       & 1.873           & 5.167            & \cellcolor{lightgreen}0.000 \\
 
-\multicolumn{6}{l}{\textbf{CKD = 1 (N = 3922)}} \\
- & age\_at\_index & 1.001 & 0.999 & 1.004 & 0.257 \\
- & male          & 1.002 & 0.942 & 1.066 & 0.951 \\
- & ckd           & 1.016 & 0.954 & 1.081 & 0.626 \\
- & depression    & 0.959 & 0.902 & 1.019 & 0.179 \\
- & hypertension  & 1.005 & 0.912 & 1.107 & 0.920 \\
- & diabetes\_duration\_6--12 mo  & 0.977 & 0.896 & 1.067 & 0.609 \\
- & diabetes\_duration\_12--18 mo & 1.216 & 1.114 & 1.327 & \cellcolor{lightgreen}0.000 \\
- & diabetes\_duration\_18--24 mo & 2.849 & 2.460 & 3.300 & \cellcolor{lightgreen}0.000 \\
+      \multicolumn{6}{l}{\textbf{CKD = 1 (N = 3922)}}                                                                                   \\
+                       & age\_at\_index                & 1.001       & 0.999           & 1.004            & 0.257                       \\
+                       & male                          & 1.002       & 0.942           & 1.066            & 0.951                       \\
+                       & ckd                           & 1.016       & 0.954           & 1.081            & 0.626                       \\
+                       & depression                    & 0.959       & 0.902           & 1.019            & 0.179                       \\
+                       & hypertension                  & 1.005       & 0.912           & 1.107            & 0.920                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.977       & 0.896           & 1.067            & 0.609                       \\
+                       & diabetes\_duration\_12--18 mo & 1.216       & 1.114           & 1.327            & \cellcolor{lightgreen}0.000 \\
+                       & diabetes\_duration\_18--24 mo & 2.849       & 2.460           & 3.300            & \cellcolor{lightgreen}0.000 \\
 
-\hline
-\end{tabular}
-\end{adjustbox}
-\caption{Stratified Cox proportional hazards models by CKD status.}
-\label{tab:ckd_stratified}
+      \hline
+    \end{tabular}
+  \end{adjustbox}
+  \caption{Stratified Cox proportional hazards models by CKD status.}
+  \label{tab:ckd_stratified}
 \end{table}
 
 \begin{table}[H]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{llcccc}
-\hline
-\textbf{Stratum} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p} \\
-\hline
+  \centering
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{llcccc}
+      \hline
+      \textbf{Stratum} & \textbf{Covariate}            & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p}                  \\
+      \hline
 
-\multicolumn{6}{l}{\textbf{Hypertension = 0 (N = 4084)}} \\
- & age\_at\_index & 1.001 & 0.999 & 1.003 & 0.460 \\
- & male          & 1.004 & 0.944 & 1.066 & 0.908 \\
- & chd           & 0.908 & 0.832 & 0.990 & \cellcolor{lightgreen}0.030 \\
- & ckd           & 1.009 & 0.950 & 1.073 & 0.763 \\
- & depression    & 0.954 & 0.898 & 1.014 & 0.128 \\
- & diabetes\_duration\_6--12 mo  & 0.981 & 0.903 & 1.065 & 0.645 \\
- & diabetes\_duration\_12--18 mo & 1.226 & 1.128 & 1.332 & \cellcolor{lightgreen}0.000 \\
- & diabetes\_duration\_18--24 mo & 2.887 & 2.486 & 3.352 & \cellcolor{lightgreen}0.000 \\
+      \multicolumn{6}{l}{\textbf{Hypertension = 0 (N = 4084)}}                                                                          \\
+                       & age\_at\_index                & 1.001       & 0.999           & 1.003            & 0.460                       \\
+                       & male                          & 1.004       & 0.944           & 1.066            & 0.908                       \\
+                       & chd                           & 0.908       & 0.832           & 0.990            & \cellcolor{lightgreen}0.030 \\
+                       & ckd                           & 1.009       & 0.950           & 1.073            & 0.763                       \\
+                       & depression                    & 0.954       & 0.898           & 1.014            & 0.128                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.981       & 0.903           & 1.065            & 0.645                       \\
+                       & diabetes\_duration\_12--18 mo & 1.226       & 1.128           & 1.332            & \cellcolor{lightgreen}0.000 \\
+                       & diabetes\_duration\_18--24 mo & 2.887       & 2.486           & 3.352            & \cellcolor{lightgreen}0.000 \\
 
-\multicolumn{6}{l}{\textbf{Hypertension = 1 (N = 448)}} \\
- & age\_at\_index & 1.001 & 0.995 & 1.008 & 0.695 \\
- & male          & 1.084 & 0.899 & 1.307 & 0.400 \\
- & chd           & 0.974 & 0.688 & 1.381 & 0.884 \\
- & ckd           & 1.075 & 0.889 & 1.301 & 0.454 \\
- & depression    & 1.025 & 0.849 & 1.238 & 0.798 \\
- & diabetes\_duration\_6--12 mo  & 0.941 & 0.714 & 1.240 & 0.666 \\
- & diabetes\_duration\_12--18 mo & 1.309 & 0.996 & 1.720 & 0.053 \\
- & diabetes\_duration\_18--24 mo & 2.782 & 1.847 & 4.190 & \cellcolor{lightgreen}0.000 \\
+      \multicolumn{6}{l}{\textbf{Hypertension = 1 (N = 448)}}                                                                           \\
+                       & age\_at\_index                & 1.001       & 0.995           & 1.008            & 0.695                       \\
+                       & male                          & 1.084       & 0.899           & 1.307            & 0.400                       \\
+                       & chd                           & 0.974       & 0.688           & 1.381            & 0.884                       \\
+                       & ckd                           & 1.075       & 0.889           & 1.301            & 0.454                       \\
+                       & depression                    & 1.025       & 0.849           & 1.238            & 0.798                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.941       & 0.714           & 1.240            & 0.666                       \\
+                       & diabetes\_duration\_12--18 mo & 1.309       & 0.996           & 1.720            & 0.053                       \\
+                       & diabetes\_duration\_18--24 mo & 2.782       & 1.847           & 4.190            & \cellcolor{lightgreen}0.000 \\
 
-\hline
-\end{tabular}
-\end{adjustbox}
-\caption{Stratified Cox proportional hazards models by hypertension status.}
-\label{tab:hypertension_stratified}
+      \hline
+    \end{tabular}
+  \end{adjustbox}
+  \caption{Stratified Cox proportional hazards models by hypertension status.}
+  \label{tab:hypertension_stratified}
 \end{table}
 
 \begin{table}[H]
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{llcccc}
-\hline
-\textbf{Stratum} & \textbf{Covariate} & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p} \\
-\hline
+  \centering
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{llcccc}
+      \hline
+      \textbf{Stratum} & \textbf{Covariate}            & \textbf{HR} & \textbf{CI low} & \textbf{CI high} & \textbf{p}                  \\
+      \hline
 
-\multicolumn{6}{l}{\textbf{Ethnicity = Not Hispanic or Latino (N = 4532)}} \\
- & age\_at\_index & 1.001 & 0.999 & 1.003 & 0.420 \\
- & male          & 1.011 & 0.954 & 1.071 & 0.722 \\
- & chd           & 0.910 & 0.836 & 0.990 & \cellcolor{lightgreen}0.028 \\
- & ckd           & 1.015 & 0.958 & 1.076 & 0.613 \\
- & depression    & 0.961 & 0.907 & 1.017 & 0.170 \\
- & diabetes\_duration\_6--12 mo  & 0.976 & 0.901 & 1.056 & 0.547 \\
- & diabetes\_duration\_12--18 mo & 1.233 & 1.139 & 1.335 & \cellcolor{lightgreen}0.000 \\
- & diabetes\_duration\_18--24 mo & 2.865 & 2.491 & 3.295 & \cellcolor{lightgreen}0.000 \\
+      \multicolumn{6}{l}{\textbf{Ethnicity = Not Hispanic or Latino (N = 4532)}}                                                        \\
+                       & age\_at\_index                & 1.001       & 0.999           & 1.003            & 0.420                       \\
+                       & male                          & 1.011       & 0.954           & 1.071            & 0.722                       \\
+                       & chd                           & 0.910       & 0.836           & 0.990            & \cellcolor{lightgreen}0.028 \\
+                       & ckd                           & 1.015       & 0.958           & 1.076            & 0.613                       \\
+                       & depression                    & 0.961       & 0.907           & 1.017            & 0.170                       \\
+                       & diabetes\_duration\_6--12 mo  & 0.976       & 0.901           & 1.056            & 0.547                       \\
+                       & diabetes\_duration\_12--18 mo & 1.233       & 1.139           & 1.335            & \cellcolor{lightgreen}0.000 \\
+                       & diabetes\_duration\_18--24 mo & 2.865       & 2.491           & 3.295            & \cellcolor{lightgreen}0.000 \\
 
-\hline
-\end{tabular}
-\end{adjustbox}
-\caption{Stratified Cox proportional hazards models by ethnicity.}
-\label{tab:ethnicity_stratified}
+      \hline
+    \end{tabular}
+  \end{adjustbox}
+  \caption{Stratified Cox proportional hazards models by ethnicity.}
+  \label{tab:ethnicity_stratified}
 \end{table}
 
 % =============================================================
